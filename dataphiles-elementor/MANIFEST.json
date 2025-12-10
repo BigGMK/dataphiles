@@ -1,0 +1,162 @@
+{
+  "name": "Dataphiles Elementor Template Kit",
+  "version": "1.0.0",
+  "description": "Professional WordPress template for Dataphiles - B2B healthcare platform provider",
+  "author": "Highland Marketing",
+  "created": "2025-12-10",
+  "wordpress_version": "6.0+",
+  "elementor_version": "3.15+",
+  "elementor_pro_required": true,
+  "recommended_theme": "Hello Elementor",
+  "templates": {
+    "pages": [
+      {
+        "name": "Homepage",
+        "file": "templates/homepage.json",
+        "slug": "home",
+        "description": "Main landing page with hero, features, sectors, and CTAs",
+        "status": "complete"
+      },
+      {
+        "name": "Why Integrate",
+        "file": "templates/why-integrate.json",
+        "slug": "why-integrate",
+        "description": "Partnership benefits and integration process for PMS vendors",
+        "status": "complete"
+      },
+      {
+        "name": "About Dataphiles",
+        "file": "templates/about.json",
+        "slug": "about",
+        "description": "Company story, mission, values, and team information",
+        "status": "complete"
+      },
+      {
+        "name": "Contact",
+        "file": "templates/contact.json",
+        "slug": "contact",
+        "description": "Contact form and company contact information",
+        "status": "complete"
+      }
+    ],
+    "theme_builder": [
+      {
+        "name": "Header",
+        "file": "templates/header.json",
+        "type": "header",
+        "display_conditions": "Entire Site",
+        "description": "Global site header with navigation menu",
+        "status": "complete"
+      },
+      {
+        "name": "Footer",
+        "file": "templates/footer.json",
+        "type": "footer",
+        "display_conditions": "Entire Site",
+        "description": "Global site footer with links and contact info",
+        "status": "complete"
+      }
+    ],
+    "global_settings": [
+      {
+        "name": "Global Settings",
+        "file": "theme/global-settings.json",
+        "description": "Brand colors, typography, and global theme settings",
+        "status": "complete"
+      }
+    ],
+    "assets": [
+      {
+        "name": "Custom CSS",
+        "file": "assets/css/custom-styles.css",
+        "type": "stylesheet",
+        "description": "Additional custom styles and responsive design",
+        "status": "complete"
+      }
+    ]
+  },
+  "pages_to_create": [
+    {
+      "name": "PatientComms",
+      "slug": "patientcomms",
+      "description": "Product showcase for PatientComms reference implementation",
+      "priority": "high"
+    },
+    {
+      "name": "Success Stories",
+      "slug": "success-stories",
+      "description": "Case studies and customer testimonials",
+      "priority": "high"
+    },
+    {
+      "name": "Become a Partner",
+      "slug": "become-a-partner",
+      "description": "Partnership application and inquiry form",
+      "priority": "high"
+    },
+    {
+      "name": "Insights",
+      "slug": "insights",
+      "description": "Blog/news section for company updates and industry insights",
+      "priority": "medium"
+    },
+    {
+      "name": "Terms & Conditions",
+      "slug": "terms-and-conditions",
+      "description": "Legal terms and conditions",
+      "priority": "medium"
+    },
+    {
+      "name": "Privacy Policy",
+      "slug": "privacy-policy",
+      "description": "Privacy policy and data protection information",
+      "priority": "medium"
+    }
+  ],
+  "menu_structure": {
+    "primary_navigation": [
+      "Home",
+      "Why Integrate",
+      "PatientComms",
+      "Success Stories",
+      "Become a Partner",
+      "About",
+      "Insights",
+      "Contact"
+    ]
+  },
+  "brand_colors": {
+    "primary_blue": "#0A2463",
+    "secondary_blue": "#3E92CC",
+    "accent_orange": "#FF6B35",
+    "text_gray": "#5A6C7D",
+    "light_gray": "#F8F9FA",
+    "white": "#FFFFFF",
+    "dark_blue": "#051938"
+  },
+  "typography": {
+    "primary_font": "Inter",
+    "fallback_fonts": "system-ui, -apple-system, sans-serif",
+    "base_size": "16px",
+    "line_height": "1.7"
+  },
+  "key_features": [
+    "Fully responsive design",
+    "Mobile-first approach",
+    "B2B focused messaging",
+    "Partnership-oriented content",
+    "Professional healthcare branding",
+    "Optimized for conversion",
+    "SEO-friendly structure",
+    "Fast loading",
+    "Elementor Pro compatible",
+    "Easy to customize"
+  ],
+  "target_audience": "Integration partners and PMS vendors in healthcare sector",
+  "installation_time": "2-4 hours (depending on customization needs)",
+  "difficulty": "Intermediate",
+  "support": {
+    "documentation": "README.md",
+    "contact": "Highland Marketing"
+  }
+}

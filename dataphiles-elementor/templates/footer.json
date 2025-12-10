@@ -1,0 +1,320 @@
+{
+  "version": "0.4",
+  "title": "Dataphiles Footer",
+  "type": "footer",
+  "content": [
+    {
+      "id": "footer-main",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "40",
+          "bottom": "40",
+          "left": "40"
+        },
+        "background_color": "#0A2463"
+      },
+      "elements": [
+        {
+          "id": "footer-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 30
+          },
+          "elements": [
+            {
+              "id": "footer-logo-text",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Dataphiles",
+                "header_size": "h4",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "footer-tagline",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #B8C5D6; font-size: 16px; line-height: 1.6;'>The specialist platform powering patient engagement in healthcare.</p>"
+              }
+            },
+            {
+              "id": "footer-address",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #B8C5D6; font-size: 14px; line-height: 1.8; margin-top: 20px;'><strong>Dataphiles Ltd</strong><br>Otley, West Yorkshire<br>United Kingdom</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "footer-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 20
+          },
+          "elements": [
+            {
+              "id": "footer-heading-2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Company",
+                "header_size": "h5",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "typography_font_weight": "600"
+              }
+            },
+            {
+              "id": "footer-menu-2",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "About Dataphiles",
+                    "link": {
+                      "url": "/about"
+                    }
+                  },
+                  {
+                    "text": "Why Integrate",
+                    "link": {
+                      "url": "/why-integrate"
+                    }
+                  },
+                  {
+                    "text": "Success Stories",
+                    "link": {
+                      "url": "/success-stories"
+                    }
+                  },
+                  {
+                    "text": "Become a Partner",
+                    "link": {
+                      "url": "/become-a-partner"
+                    }
+                  }
+                ],
+                "view": "vertical",
+                "text_color": "#B8C5D6",
+                "text_color_hover": "#FFFFFF",
+                "space_between": {
+                  "unit": "px",
+                  "size": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "footer-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 20
+          },
+          "elements": [
+            {
+              "id": "footer-heading-3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Solutions",
+                "header_size": "h5",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "typography_font_weight": "600"
+              }
+            },
+            {
+              "id": "footer-menu-3",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "PatientComms",
+                    "link": {
+                      "url": "/patientcomms"
+                    }
+                  },
+                  {
+                    "text": "Dentistry",
+                    "link": {
+                      "url": "/sectors/dentistry"
+                    }
+                  },
+                  {
+                    "text": "Optometry",
+                    "link": {
+                      "url": "/sectors/optometry"
+                    }
+                  },
+                  {
+                    "text": "Primary Care",
+                    "link": {
+                      "url": "/sectors/primary-care"
+                    }
+                  },
+                  {
+                    "text": "Secondary Care",
+                    "link": {
+                      "url": "/sectors/secondary-care"
+                    }
+                  }
+                ],
+                "view": "vertical",
+                "text_color": "#B8C5D6",
+                "text_color_hover": "#FFFFFF",
+                "space_between": {
+                  "unit": "px",
+                  "size": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "footer-col-4",
+          "elType": "column",
+          "settings": {
+            "_column_size": 30
+          },
+          "elements": [
+            {
+              "id": "footer-heading-4",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Get in Touch",
+                "header_size": "h5",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "typography_font_weight": "600"
+              }
+            },
+            {
+              "id": "footer-contact",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "Contact Us",
+                    "link": {
+                      "url": "/contact"
+                    }
+                  },
+                  {
+                    "text": "Insights & News",
+                    "link": {
+                      "url": "/insights"
+                    }
+                  },
+                  {
+                    "text": "Support",
+                    "link": {
+                      "url": "/support"
+                    }
+                  }
+                ],
+                "view": "vertical",
+                "text_color": "#B8C5D6",
+                "text_color_hover": "#FFFFFF",
+                "space_between": {
+                  "unit": "px",
+                  "size": 12
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "footer-bottom",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "padding": {
+          "unit": "px",
+          "top": "25",
+          "right": "40",
+          "bottom": "25",
+          "left": "40"
+        },
+        "background_color": "#051938",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "0",
+          "bottom": "0",
+          "left": "0"
+        },
+        "border_color": "rgba(255,255,255,0.1)"
+      },
+      "elements": [
+        {
+          "id": "footer-bottom-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "footer-copyright",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #B8C5D6; font-size: 14px; margin: 0;'>&copy; 2025 Dataphiles Ltd. All rights reserved.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "footer-bottom-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "footer-legal",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #B8C5D6; font-size: 14px; margin: 0; text-align: right;'><a href='/terms-and-conditions' style='color: #B8C5D6; text-decoration: none; margin-left: 20px;'>Terms & Conditions</a> | <a href='/privacy-policy' style='color: #B8C5D6; text-decoration: none; margin-left: 20px;'>Privacy Policy</a></p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

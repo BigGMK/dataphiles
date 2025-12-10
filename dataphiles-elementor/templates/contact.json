@@ -1,0 +1,558 @@
+{
+  "version": "0.4",
+  "title": "Contact Dataphiles",
+  "type": "page",
+  "content": [
+    {
+      "id": "contact-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "contact-hero-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "contact-hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Get in Touch",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                }
+              }
+            },
+            {
+              "id": "contact-hero-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 700px; margin: 20px auto;'>Whether you're interested in partnership opportunities, need technical support, or have questions about our platform – we're here to help.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact-main",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "contact-form-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 60
+          },
+          "elements": [
+            {
+              "id": "form-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Send Us a Message",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 32
+                }
+              }
+            },
+            {
+              "id": "form-intro",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px;'>Fill out the form below and our team will get back to you within one business day.</p>"
+              }
+            },
+            {
+              "id": "contact-form",
+              "elType": "widget",
+              "widgetType": "form",
+              "settings": {
+                "form_name": "Contact Form",
+                "form_fields": [
+                  {
+                    "custom_id": "name",
+                    "field_type": "text",
+                    "field_label": "Full Name",
+                    "placeholder": "Enter your full name",
+                    "required": true,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "email",
+                    "field_type": "email",
+                    "field_label": "Email Address",
+                    "placeholder": "your.email@example.com",
+                    "required": true,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "company",
+                    "field_type": "text",
+                    "field_label": "Company Name",
+                    "placeholder": "Your company or organization",
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "role",
+                    "field_type": "text",
+                    "field_label": "Your Role",
+                    "placeholder": "e.g., CTO, Product Manager",
+                    "required": false,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "inquiry_type",
+                    "field_type": "select",
+                    "field_label": "Inquiry Type",
+                    "field_options": [
+                      "Partnership Opportunity",
+                      "Technical Integration",
+                      "General Inquiry",
+                      "Customer Support",
+                      "Other"
+                    ],
+                    "required": true,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "message",
+                    "field_type": "textarea",
+                    "field_label": "Message",
+                    "placeholder": "Tell us about your inquiry or project...",
+                    "required": true,
+                    "rows": 6,
+                    "width": "100"
+                  }
+                ],
+                "button_text": "Send Message",
+                "button_size": "lg",
+                "button_align": "left",
+                "success_message": "Thank you for contacting Dataphiles! We'll be in touch soon.",
+                "error_message": "There was an error submitting your form. Please try again.",
+                "email_to": "info@dataphiles.com",
+                "email_subject": "New Contact Form Submission - Dataphiles Website",
+                "button_background_color": "#3E92CC",
+                "button_text_color": "#FFFFFF"
+              }
+            }
+          ]
+        },
+        {
+          "id": "contact-info-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 40,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "35",
+              "bottom": "40",
+              "left": "35"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "info-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Contact Information",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "info-location",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": "fas fa-map-marker-alt",
+                "title_text": "Location",
+                "description_text": "Dataphiles Ltd\nOtley, West Yorkshire\nUnited Kingdom",
+                "icon_color": "#3E92CC",
+                "title_color": "#0A2463",
+                "description_color": "#5A6C7D"
+              }
+            },
+            {
+              "id": "info-email",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": "fas fa-envelope",
+                "title_text": "Email",
+                "description_text": "info@dataphiles.com",
+                "icon_color": "#3E92CC",
+                "title_color": "#0A2463",
+                "description_color": "#5A6C7D",
+                "link": {
+                  "url": "mailto:info@dataphiles.com"
+                }
+              }
+            },
+            {
+              "id": "info-divider",
+              "elType": "widget",
+              "widgetType": "divider",
+              "settings": {
+                "style": "solid",
+                "weight": {
+                  "unit": "px",
+                  "size": 1
+                },
+                "color": "#D1D8E0",
+                "gap": {
+                  "unit": "px",
+                  "size": 30
+                }
+              }
+            },
+            {
+              "id": "info-response",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Quick Response",
+                "header_size": "h4",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "info-response-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 15px; line-height: 1.7;'>We aim to respond to all partnership inquiries within one business day. For urgent technical support matters, existing customers should use their dedicated support channels.</p>"
+              }
+            },
+            {
+              "id": "info-divider-2",
+              "elType": "widget",
+              "widgetType": "divider",
+              "settings": {
+                "style": "solid",
+                "weight": {
+                  "unit": "px",
+                  "size": 1
+                },
+                "color": "#D1D8E0",
+                "gap": {
+                  "unit": "px",
+                  "size": 30
+                }
+              }
+            },
+            {
+              "id": "info-office-hours",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Office Hours",
+                "header_size": "h4",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "info-hours-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 15px; line-height: 1.7;'><strong>Monday – Friday:</strong><br>9:00 AM – 5:30 PM GMT</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact-types",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "types-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "types-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "How Can We Help?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact-types-cards",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "type-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-1-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-handshake",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Partnership Opportunities",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "type-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Interested in integrating Dataphiles with your platform? Let's discuss how we can work together.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "type-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-2-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-code",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Technical Integration",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "type-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Questions about our API, integration process, or technical capabilities? Our development team is ready to help.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "type-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-3-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-question-circle",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "General Inquiries",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "type-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Have questions about our platform, pricing, or how we work? We're happy to provide information.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

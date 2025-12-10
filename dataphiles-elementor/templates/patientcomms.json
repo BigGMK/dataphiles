@@ -1,0 +1,825 @@
+{
+  "version": "0.4",
+  "title": "PatientComms - Reference Implementation",
+  "type": "page",
+  "content": [
+    {
+      "id": "patientcomms-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "pc-hero-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "pc-hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "PatientComms",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 52
+                }
+              }
+            },
+            {
+              "id": "pc-hero-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; max-width: 800px; margin: 20px auto;'>A powerful demonstration of what the Dataphiles platform can deliver: comprehensive patient engagement, seamless communication, and enhanced practice efficiency.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-intro",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "pc-intro-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 60
+          },
+          "elements": [
+            {
+              "id": "pc-intro-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Showcasing Platform Capabilities",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "pc-intro-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms is our reference implementation—a complete patient communication solution that demonstrates the full power of the Dataphiles platform in action.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>While PatientComms operates as its own branded solution, it serves as proof of what integration partners can achieve using our technology. Every feature, every integration point, and every capability you see in PatientComms is available for your platform.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Whether you choose to white-label our solution or integrate specific components, PatientComms demonstrates the depth and sophistication of what's possible.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pc-intro-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 40,
+            "background_color": "#F0F4F8",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "35",
+              "bottom": "40",
+              "left": "35"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "pc-stats-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Proven Impact",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "pc-stat-1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #3E92CC; font-size: 40px; font-weight: 700; margin: 20px 0 5px 0;'>95%</p><p style='color: #5A6C7D; font-size: 16px;'>Appointment reminder effectiveness</p>"
+              }
+            },
+            {
+              "id": "pc-stat-2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #3E92CC; font-size: 40px; font-weight: 700; margin: 30px 0 5px 0;'>40%</p><p style='color: #5A6C7D; font-size: 16px;'>Reduction in missed appointments</p>"
+              }
+            },
+            {
+              "id": "pc-stat-3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #3E92CC; font-size: 40px; font-weight: 700; margin: 30px 0 5px 0;'>75%</p><p style='color: #5A6C7D; font-size: 16px;'>Improvement in patient satisfaction scores</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-features-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "60",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "pc-features-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "pc-features-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Comprehensive Feature Set",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "pc-features-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 50px;'>PatientComms includes everything practices need to engage effectively with patients—and everything partners need to deliver comprehensive solutions.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-features-grid",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "feature-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-1-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "far fa-calendar-alt",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Appointment Management",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Automated appointment reminders</li><li>SMS and email notifications</li><li>Confirmation requests</li><li>Cancellation management</li><li>Rescheduling automation</li></ul>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-2-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "far fa-comments",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Two-Way Messaging",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Secure patient messaging</li><li>Multi-channel communication</li><li>Template library</li><li>Conversation history</li><li>Team collaboration tools</li></ul>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-3-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-redo-alt",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Recalls & Campaigns",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Automated recall systems</li><li>Targeted campaigns</li><li>Birthday messages</li><li>Seasonal promotions</li><li>Custom triggers</li></ul>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-4-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-4-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "far fa-file-alt",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-4-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Digital Forms",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-4-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Online forms and questionnaires</li><li>Digital consent management</li><li>Pre-appointment forms</li><li>Medical history updates</li><li>Direct PMS integration</li></ul>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-5-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-5-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "far fa-star",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-5-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Reviews & Feedback",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-5-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Automated review requests</li><li>Multi-platform posting</li><li>Feedback collection</li><li>Reputation management</li><li>Satisfaction tracking</li></ul>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-6-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "35",
+              "right": "30",
+              "bottom": "35",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "feature-6-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-chart-bar",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 45
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-6-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Analytics & Reporting",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "feature-6-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Communication analytics</li><li>Patient engagement metrics</li><li>Campaign performance</li><li>ROI tracking</li><li>Custom reporting</li></ul>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-integration",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "pc-integration-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "pc-integration-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Deep PMS Integration",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "pc-integration-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms demonstrates seamless integration with practice management systems. Patient data, appointment schedules, treatment plans, and medical histories flow bidirectionally, ensuring accuracy and eliminating duplicate data entry.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>This same integration capability is available for your platform, with flexible APIs that adapt to your existing data structures and workflows.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pc-integration-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "35",
+              "bottom": "40",
+              "left": "35"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "pc-integration-features",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "Real-time data synchronization",
+                    "icon": "fas fa-sync"
+                  },
+                  {
+                    "text": "Bidirectional communication",
+                    "icon": "fas fa-exchange-alt"
+                  },
+                  {
+                    "text": "Automated workflows",
+                    "icon": "fas fa-cogs"
+                  },
+                  {
+                    "text": "Single sign-on (SSO) support",
+                    "icon": "fas fa-key"
+                  },
+                  {
+                    "text": "Custom field mapping",
+                    "icon": "fas fa-map-marked-alt"
+                  },
+                  {
+                    "text": "API-first architecture",
+                    "icon": "fas fa-code"
+                  }
+                ],
+                "icon_color": "#3E92CC",
+                "text_color": "#5A6C7D",
+                "space_between": {
+                  "unit": "px",
+                  "size": 15
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-whitelabel",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F0F4F8"
+      },
+      "elements": [
+        {
+          "id": "pc-whitelabel-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "pc-whitelabel-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Your Brand, Our Technology",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "pc-whitelabel-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 800px; margin: 20px auto 40px; line-height: 1.8;'>While PatientComms operates as its own brand, many of our partners choose to rebrand the platform entirely. Carestream's Patient Bridge is a perfect example—it's powered by Dataphiles technology but presents as a native Carestream solution.</p><p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 800px; margin: 0 auto; line-height: 1.8;'>You can do the same. Every interface element, every email, every message can carry your brand identity. Your customers will see your solution, powered by our proven technology.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pc-cta",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "pc-cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "pc-cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ready to Deliver These Capabilities?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "pc-cta-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 18px; max-width: 700px; margin: 20px auto 40px;'>Everything you've seen in PatientComms—and more—can be integrated into your platform. Let's discuss how Dataphiles can power your patient engagement solution.</p>"
+              }
+            },
+            {
+              "id": "pc-cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore Partnership Opportunities",
+                "link": {
+                  "url": "/become-a-partner"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

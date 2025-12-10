@@ -1,0 +1,731 @@
+{
+  "version": "0.4",
+  "title": "About Dataphiles",
+  "type": "page",
+  "content": [
+    {
+      "id": "about-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "about-hero-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "about-hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Specialists in Patient Engagement Technology",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                }
+              }
+            },
+            {
+              "id": "about-hero-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 800px; margin: 20px auto;'>For over 18 years, Dataphiles has been developing and refining the technology that connects healthcare practices with their patients.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "about-story",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "story-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50
+          },
+          "elements": [
+            {
+              "id": "story-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Our Story",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "story-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>Dataphiles began with a simple but powerful insight: healthcare practices needed better ways to communicate with their patients, but building this technology wasn't their core expertise.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>What started as a solution for dental practices has evolved into a comprehensive platform serving multiple healthcare verticals. Our focus has sharpened too – rather than selling directly to practices, we now partner with practice management software providers to deliver our technology where it creates the most value.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Today, we power patient communication for some of the largest healthcare platforms in the UK, processing millions of patient interactions annually.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "story-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "40",
+              "bottom": "40",
+              "left": "40"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "stats-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "By the Numbers",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 28
+                }
+              }
+            },
+            {
+              "id": "stat-1",
+              "elType": "widget",
+              "widgetType": "counter",
+              "settings": {
+                "ending_number": 18,
+                "title": "Years of Expertise",
+                "number_color": "#3E92CC",
+                "title_color": "#5A6C7D"
+              }
+            },
+            {
+              "id": "stat-text-1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; margin-bottom: 30px;'>Continuous innovation in patient engagement technology</p>"
+              }
+            },
+            {
+              "id": "stat-text-2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 0;'>Millions</p><p style='color: #5A6C7D;'>Patient interactions processed annually</p>"
+              }
+            },
+            {
+              "id": "stat-text-3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 30px 0 0 0;'>Multiple</p><p style='color: #5A6C7D;'>Healthcare sectors served</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mission-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "mission-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "mission-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Our Mission",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "mission-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 20px; line-height: 1.8; max-width: 900px; margin: 30px auto;'>To power seamless, effective patient engagement across healthcare by providing the specialist technology that practice management systems need – enabling better communication, improved patient experiences, and more efficient practice operations.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "values-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "values-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "values-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What Drives Us",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "values-grid",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "value-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            }
+          },
+          "elements": [
+            {
+              "id": "value-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Specialist Focus",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "value-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>We do one thing and do it exceptionally well: patient communication technology. This specialization means deeper expertise and better solutions than generalist platforms can provide.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "value-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            }
+          },
+          "elements": [
+            {
+              "id": "value-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Partnership Mindset",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "value-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Your success is our success. We work collaboratively with integration partners, providing the support and flexibility needed to create mutual value and serve end customers effectively.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "value-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            }
+          },
+          "elements": [
+            {
+              "id": "value-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Continuous Innovation",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "value-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Healthcare technology evolves rapidly. Our dedicated team constantly enhances the platform with new features, performance improvements, and regulatory updates to stay ahead of the curve.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "team-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "team-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Team Behind the Technology",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "team-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 18px; max-width: 800px; margin: 20px auto;'>Based in Otley, West Yorkshire, our team brings together expertise in software development, healthcare technology, customer success, and product innovation. We're a close-knit group united by a common goal: making patient engagement technology that genuinely works.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team-leads",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "team-member-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "member-1-name",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Lucy Burns",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "member-1-role",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #3E92CC; font-weight: 600;'>Managing Director</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "team-member-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "member-2-name",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Max Bentham",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "member-2-role",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #3E92CC; font-weight: 600;'>Product Director</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "team-member-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "member-3-name",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Oli Trenouth",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "member-3-role",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #3E92CC; font-weight: 600;'>Technical Director</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "team-member-4",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "member-4-name",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Melanie Dumbrell",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "member-4-role",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #3E92CC; font-weight: 600;'>Customer Success Team Lead</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "about-cta",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "about-cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "about-cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Let's Work Together",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "about-cta-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 18px; max-width: 600px; margin: 20px auto 40px;'>Interested in partnering with Dataphiles? We'd love to hear from you.</p>"
+              }
+            },
+            {
+              "id": "about-cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Get in Touch",
+                "link": {
+                  "url": "/contact"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

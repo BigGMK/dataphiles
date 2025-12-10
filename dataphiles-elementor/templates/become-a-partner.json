@@ -1,0 +1,714 @@
+{
+  "version": "0.4",
+  "title": "Become a Partner",
+  "type": "page",
+  "content": [
+    {
+      "id": "partner-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "partner-hero-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "partner-hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Let's Build the Future of Patient Engagement Together",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                }
+              }
+            },
+            {
+              "id": "partner-hero-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 800px; margin: 20px auto;'>Join leading healthcare platforms that trust Dataphiles to power their patient communication capabilities. Tell us about your platform and let's explore partnership opportunities.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partner-intro",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "60",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "partner-intro-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "partner-intro-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Partnership Opportunities",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                }
+              }
+            },
+            {
+              "id": "partner-intro-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 800px; margin: 20px auto;'>Whether you're a practice management software provider, healthcare technology platform, or system integrator – we offer flexible partnership models designed to create mutual value.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partnership-types",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "type-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-1-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-code-branch",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Integration Partnership",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "type-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Seamlessly integrate Dataphiles patient communication capabilities into your PMS platform. Full API access with white-label options.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "type-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-2-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-tags",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "White-Label Partnership",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "type-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Rebrand our platform as your own. Complete customization to match your brand identity while we power the technology behind the scenes.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "type-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "type-3-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-trophy",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "type-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Revenue Share",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "type-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; line-height: 1.7;'>Flexible business models including revenue sharing arrangements. Create new income streams while adding value for your customers.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partner-form-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "form-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "form-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Start Your Partnership Journey",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "form-subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 50px;'>Tell us about your platform and business objectives. Our partnership team will review your inquiry and schedule a discovery call within one business day.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partner-form",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "form-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 70,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "50",
+              "right": "50",
+              "bottom": "50",
+              "left": "50"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "partnership-form",
+              "elType": "widget",
+              "widgetType": "form",
+              "settings": {
+                "form_name": "Partnership Inquiry Form",
+                "form_fields": [
+                  {
+                    "custom_id": "contact_name",
+                    "field_type": "text",
+                    "field_label": "Your Name",
+                    "placeholder": "Full name",
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "job_title",
+                    "field_type": "text",
+                    "field_label": "Job Title",
+                    "placeholder": "e.g., CEO, CTO, Product Director",
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "company_name",
+                    "field_type": "text",
+                    "field_label": "Company Name",
+                    "placeholder": "Your company or organization",
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "company_website",
+                    "field_type": "url",
+                    "field_label": "Company Website",
+                    "placeholder": "https://www.example.com",
+                    "required": false,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "email",
+                    "field_type": "email",
+                    "field_label": "Business Email",
+                    "placeholder": "your.email@company.com",
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "phone",
+                    "field_type": "tel",
+                    "field_label": "Phone Number",
+                    "placeholder": "+44 1234 567890",
+                    "required": false,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "platform_type",
+                    "field_type": "select",
+                    "field_label": "Your Platform Type",
+                    "field_options": [
+                      "Practice Management Software (PMS)",
+                      "Healthcare Technology Platform",
+                      "System Integrator",
+                      "Technology Vendor",
+                      "Other"
+                    ],
+                    "required": true,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "sector",
+                    "field_type": "select",
+                    "field_label": "Primary Healthcare Sector",
+                    "field_options": [
+                      "Dentistry",
+                      "Optometry",
+                      "Primary Care (GP)",
+                      "Secondary Care (Hospitals)",
+                      "Multiple Sectors",
+                      "Other"
+                    ],
+                    "required": true,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "customer_count",
+                    "field_type": "select",
+                    "field_label": "Number of Customers",
+                    "field_options": [
+                      "1-50",
+                      "51-200",
+                      "201-500",
+                      "501-1000",
+                      "1000+"
+                    ],
+                    "required": false,
+                    "width": "50"
+                  },
+                  {
+                    "custom_id": "partnership_interest",
+                    "field_type": "select",
+                    "field_label": "Partnership Interest",
+                    "field_options": [
+                      "Integration Partnership",
+                      "White-Label Partnership",
+                      "Revenue Share Model",
+                      "Exploring Options",
+                      "Other"
+                    ],
+                    "required": true,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "timeline",
+                    "field_type": "select",
+                    "field_label": "Desired Timeline",
+                    "field_options": [
+                      "Immediate (0-3 months)",
+                      "Short-term (3-6 months)",
+                      "Medium-term (6-12 months)",
+                      "Long-term (12+ months)",
+                      "Exploring for future"
+                    ],
+                    "required": false,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "message",
+                    "field_type": "textarea",
+                    "field_label": "Tell Us About Your Requirements",
+                    "placeholder": "Please describe your platform, integration needs, and partnership objectives...",
+                    "required": true,
+                    "rows": 6,
+                    "width": "100"
+                  },
+                  {
+                    "custom_id": "consent",
+                    "field_type": "checkbox",
+                    "field_label": "I agree to be contacted by Dataphiles regarding partnership opportunities",
+                    "required": true,
+                    "width": "100"
+                  }
+                ],
+                "button_text": "Submit Partnership Inquiry",
+                "button_size": "lg",
+                "button_align": "center",
+                "success_message": "Thank you for your partnership inquiry! Our team will review your information and contact you within one business day to schedule a discovery call.",
+                "error_message": "There was an error submitting your form. Please try again or contact us directly at partnerships@dataphiles.com",
+                "email_to": "partnerships@dataphiles.com",
+                "email_subject": "New Partnership Inquiry - Dataphiles Website",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF"
+              }
+            }
+          ]
+        },
+        {
+          "id": "info-sidebar-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 30
+          },
+          "elements": [
+            {
+              "id": "sidebar-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What Happens Next?",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "step-1",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": "far fa-calendar-check",
+                "title_text": "1. Quick Response",
+                "description_text": "We'll review your inquiry and respond within one business day.",
+                "icon_color": "#3E92CC",
+                "title_color": "#0A2463",
+                "description_color": "#5A6C7D"
+              }
+            },
+            {
+              "id": "step-2",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": "far fa-comments",
+                "title_text": "2. Discovery Call",
+                "description_text": "We'll schedule a call to understand your platform and discuss partnership opportunities.",
+                "icon_color": "#3E92CC",
+                "title_color": "#0A2463",
+                "description_color": "#5A6C7D"
+              }
+            },
+            {
+              "id": "step-3",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "icon": "far fa-file-alt",
+                "title_text": "3. Proposal",
+                "description_text": "If there's a good fit, we'll create a tailored partnership proposal for your review.",
+                "icon_color": "#3E92CC",
+                "title_color": "#0A2463",
+                "description_color": "#5A6C7D"
+              }
+            },
+            {
+              "id": "sidebar-divider",
+              "elType": "widget",
+              "widgetType": "divider",
+              "settings": {
+                "style": "solid",
+                "weight": {
+                  "unit": "px",
+                  "size": 1
+                },
+                "color": "#D1D8E0",
+                "gap": {
+                  "unit": "px",
+                  "size": 25
+                }
+              }
+            },
+            {
+              "id": "sidebar-contact",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Prefer to Talk?",
+                "header_size": "h4",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "sidebar-contact-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 15px; line-height: 1.7;'>Contact our partnership team directly:</p><p style='color: #3E92CC; font-size: 16px; font-weight: 600;'>partnerships@dataphiles.com</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partner-benefits-cta",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "benefits-cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "benefits-cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Want to Learn More About Partnership Benefits?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 32
+                }
+              }
+            },
+            {
+              "id": "benefits-cta-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 17px; max-width: 600px; margin: 20px auto 30px;'>Discover how Dataphiles partnerships can accelerate your time to market, reduce customer churn, and create new revenue streams.</p>"
+              }
+            },
+            {
+              "id": "benefits-cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore Partnership Benefits",
+                "link": {
+                  "url": "/why-integrate"
+                },
+                "align": "center",
+                "size": "md",
+                "button_background_color": "#3E92CC",
+                "button_text_color": "#FFFFFF",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

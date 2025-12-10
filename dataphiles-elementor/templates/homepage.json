@@ -1,0 +1,796 @@
+{
+  "version": "0.4",
+  "title": "Dataphiles Homepage",
+  "type": "page",
+  "content": [
+    {
+      "id": "hero-section",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "height": "min-height",
+        "custom_height": {
+          "unit": "vh",
+          "size": 90
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 135
+        },
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "40",
+          "bottom": "100",
+          "left": "40"
+        }
+      },
+      "elements": [
+        {
+          "id": "hero-column",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "hero-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Platform Powering Patient Engagement in Healthcare",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 56
+                },
+                "typography_font_weight": "700",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2
+                }
+              }
+            },
+            {
+              "id": "hero-subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; line-height: 1.6; max-width: 800px; margin: 30px auto;'>Dataphiles provides the specialist patient communication technology that powers successful healthcare systems. We integrate seamlessly with practice management software to enhance functionality and improve patient experiences.</p>"
+              }
+            },
+            {
+              "id": "hero-buttons",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Become a Partner",
+                "link": {
+                  "url": "/become-a-partner"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            },
+            {
+              "id": "hero-secondary-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Why Integrate",
+                "link": {
+                  "url": "/why-integrate"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_type": "outline",
+                "button_border_color": "#FFFFFF",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "value-proposition",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "value-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "value-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Why Leading Healthcare Systems Choose Dataphiles",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 42
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "value-intro",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>Purpose-built by patient communication specialists with 18+ years of expertise. Our platform enhances your system while preserving your brand identity.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "feature-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-1",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-plug",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 60
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-title-1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Seamless Integration",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "feature-text-1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>API-first architecture that integrates smoothly with your existing practice management systems. No disruption, just enhanced capability.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-2",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-tags",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 60
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-title-2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "White-Label Ready",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "feature-text-2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Fully customizable to match your brand identity. Deploy under your name or co-brand – the choice is yours.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "feature-icon-3",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-chart-line",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 60
+                },
+                "align": "center"
+              }
+            },
+            {
+              "id": "feature-title-3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Proven at Scale",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                }
+              }
+            },
+            {
+              "id": "feature-text-3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Already powering major implementations across healthcare. Scalable, reliable, and continuously enhanced by our specialist team.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sectors-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "sectors-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "sectors-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Specialist Solutions Across Healthcare Sectors",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 42
+                }
+              }
+            },
+            {
+              "id": "sectors-intro",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>From dentistry to optometry, primary to secondary care – our platform adapts to the unique needs of each healthcare vertical.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sectors-cards",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "sector-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "sector-title-1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Dentistry",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "sector-text-1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Established presence powering major dental platforms and practices.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sector-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "sector-title-2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Optometry",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "sector-text-2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Growing partnerships bringing enhanced patient engagement to optical practices.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sector-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "sector-title-3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Primary Care",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "sector-text-3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Scalable solutions for GP surgeries and primary care networks.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sector-col-4",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "background_color": "#F8F9FA",
+            "padding": {
+              "unit": "px",
+              "top": "30",
+              "right": "25",
+              "bottom": "30",
+              "left": "25"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "sector-title-4",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Secondary Care",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "id": "sector-text-4",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Flexible integration for complex hospital systems and specialist services.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patientcomms-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_background": "gradient",
+        "background_color": "#F0F4F8",
+        "background_color_b": "#E8EEF4"
+      },
+      "elements": [
+        {
+          "id": "patientcomms-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50
+          },
+          "elements": [
+            {
+              "id": "patientcomms-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "PatientComms: Our Reference Implementation",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 36
+                }
+              }
+            },
+            {
+              "id": "patientcomms-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='font-size: 18px; color: #5A6C7D; line-height: 1.8;'>PatientComms demonstrates the full capabilities of our platform in action. It showcases how our technology enhances patient engagement, streamlines communication, and improves practice efficiency.</p><p style='font-size: 18px; color: #5A6C7D; line-height: 1.8; margin-top: 20px;'>Whether you choose to white-label our solution or integrate under your own brand, PatientComms serves as proof of what's possible.</p>"
+              }
+            },
+            {
+              "id": "patientcomms-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore PatientComms",
+                "link": {
+                  "url": "/patientcomms"
+                },
+                "button_background_color": "#3E92CC",
+                "button_text_color": "#FFFFFF",
+                "size": "md",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "patientcomms-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "40",
+              "bottom": "40",
+              "left": "40"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "patientcomms-features",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "Appointment scheduling and reminders",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Two-way patient messaging",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Automated recalls and campaigns",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Online forms and consent",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Treatment plan communications",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Review and feedback management",
+                    "icon": "fas fa-check-circle"
+                  }
+                ],
+                "icon_color": "#3E92CC"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cta-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "no",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 45
+        }
+      },
+      "elements": [
+        {
+          "id": "cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ready to Enhance Your Healthcare Platform?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 42
+                }
+              }
+            },
+            {
+              "id": "cta-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 700px; margin: 20px auto 40px;'>Join leading healthcare systems that trust Dataphiles to power their patient engagement. Let's discuss how we can integrate with your platform.</p>"
+              }
+            },
+            {
+              "id": "cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Become a Partner",
+                "link": {
+                  "url": "/become-a-partner"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

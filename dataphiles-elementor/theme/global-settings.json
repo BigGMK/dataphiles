@@ -1,0 +1,144 @@
+{
+  "version": "0.4",
+  "title": "Dataphiles Theme - Global Settings",
+  "type": "kit",
+  "settings": {
+    "site_name": "Dataphiles",
+    "site_description": "The specialist platform powering patient engagement in healthcare",
+    "page_title_selector": "h1.entry-title",
+    "activeBreakpoints": ["mobile", "tablet", "desktop"],
+    "container_width": {
+      "unit": "px",
+      "size": 1200
+    },
+    "space_between_widgets": {
+      "unit": "px",
+      "size": 20
+    }
+  },
+  "system_colors": [
+    {
+      "_id": "primary",
+      "title": "Primary Blue",
+      "color": "#0A2463"
+    },
+    {
+      "_id": "secondary",
+      "title": "Secondary Blue",
+      "color": "#3E92CC"
+    },
+    {
+      "_id": "accent",
+      "title": "Accent Orange",
+      "color": "#FF6B35"
+    },
+    {
+      "_id": "text",
+      "title": "Text Gray",
+      "color": "#5A6C7D"
+    },
+    {
+      "_id": "light_gray",
+      "title": "Light Gray",
+      "color": "#F8F9FA"
+    },
+    {
+      "_id": "white",
+      "title": "White",
+      "color": "#FFFFFF"
+    },
+    {
+      "_id": "dark",
+      "title": "Dark Blue",
+      "color": "#051938"
+    },
+    {
+      "_id": "success",
+      "title": "Success Green",
+      "color": "#28A745"
+    },
+    {
+      "_id": "warning",
+      "title": "Warning Yellow",
+      "color": "#FFC107"
+    },
+    {
+      "_id": "info",
+      "title": "Info Blue",
+      "color": "#17A2B8"
+    }
+  ],
+  "custom_colors": [],
+  "system_typography": [
+    {
+      "_id": "primary",
+      "title": "Primary (Headings)",
+      "typography_typography": "custom",
+      "typography_font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "typography_font_weight": "700"
+    },
+    {
+      "_id": "secondary",
+      "title": "Secondary (Body)",
+      "typography_typography": "custom",
+      "typography_font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "typography_font_weight": "400"
+    },
+    {
+      "_id": "text",
+      "title": "Body Text",
+      "typography_typography": "custom",
+      "typography_font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "typography_font_size": {
+        "unit": "px",
+        "size": 16
+      },
+      "typography_font_weight": "400",
+      "typography_line_height": {
+        "unit": "em",
+        "size": 1.7
+      }
+    },
+    {
+      "_id": "accent",
+      "title": "Accent Text",
+      "typography_typography": "custom",
+      "typography_font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "typography_font_weight": "600"
+    }
+  ],
+  "custom_typography": [],
+  "default_generic_fonts": "sans-serif",
+  "site_language": "en_GB",
+  "page_settings": {
+    "page_content_width": {
+      "unit": "px",
+      "size": 1200
+    }
+  },
+  "button_settings": {
+    "button_typography": {
+      "typography_font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "typography_font_weight": "600",
+      "typography_font_size": {
+        "unit": "px",
+        "size": 16
+      }
+    },
+    "button_border_radius": {
+      "unit": "px",
+      "size": 5
+    },
+    "button_padding": {
+      "unit": "px",
+      "top": 15,
+      "right": 35,
+      "bottom": 15,
+      "left": 35
+    }
+  },
+  "lightbox_settings": {
+    "lightbox_ui_color": "#0A2463",
+    "lightbox_ui_color_hover": "#3E92CC"
+  }
+}

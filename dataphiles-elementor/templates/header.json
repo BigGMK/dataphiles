@@ -1,0 +1,156 @@
+{
+  "version": "0.4",
+  "title": "Dataphiles Header",
+  "type": "header",
+  "content": [
+    {
+      "id": "header-section",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "40",
+          "bottom": "20",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF",
+        "box_shadow": {
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.08)"
+        },
+        "position": "fixed",
+        "z_index": 999
+      },
+      "elements": [
+        {
+          "id": "logo-column",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "logo",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": {
+                  "url": "[[LOGO_URL]]"
+                },
+                "image_size": "medium",
+                "align": "left",
+                "link": {
+                  "url": "/"
+                },
+                "width": {
+                  "unit": "px",
+                  "size": 180
+                }
+              }
+            },
+            {
+              "id": "logo-text",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Dataphiles",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 28
+                },
+                "typography_font_weight": "700",
+                "link": {
+                  "url": "/"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "nav-column",
+          "elType": "column",
+          "settings": {
+            "_column_size": 75,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "main-nav",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "layout": "horizontal",
+                "align_items": "right",
+                "pointer": "underline",
+                "menu_items": [
+                  {
+                    "text": "Home",
+                    "url": "/",
+                    "item_id": "home"
+                  },
+                  {
+                    "text": "Why Integrate",
+                    "url": "/why-integrate",
+                    "item_id": "why-integrate"
+                  },
+                  {
+                    "text": "PatientComms",
+                    "url": "/patientcomms",
+                    "item_id": "patientcomms"
+                  },
+                  {
+                    "text": "Success Stories",
+                    "url": "/success-stories",
+                    "item_id": "success-stories"
+                  },
+                  {
+                    "text": "Become a Partner",
+                    "url": "/become-a-partner",
+                    "item_id": "become-partner",
+                    "is_cta": true
+                  },
+                  {
+                    "text": "About",
+                    "url": "/about",
+                    "item_id": "about"
+                  },
+                  {
+                    "text": "Insights",
+                    "url": "/insights",
+                    "item_id": "insights"
+                  },
+                  {
+                    "text": "Contact",
+                    "url": "/contact",
+                    "item_id": "contact"
+                  }
+                ],
+                "color_text": "#5A6C7D",
+                "color_text_hover": "#0A2463",
+                "color_text_active": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16
+                },
+                "typography_font_weight": "500",
+                "item_spacing": {
+                  "unit": "px",
+                  "size": 25
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

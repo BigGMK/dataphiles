@@ -1,0 +1,767 @@
+{
+  "version": "0.4",
+  "title": "Why Integrate with Dataphiles",
+  "type": "page",
+  "content": [
+    {
+      "id": "why-hero",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "why-hero-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "why-hero-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Why Integrate with Dataphiles?",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                }
+              }
+            },
+            {
+              "id": "why-hero-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 800px; margin: 20px auto;'>Enhance your platform with specialist patient communication capabilities that your customers will love – while maintaining your brand and growing your revenue.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "benefits-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "benefits-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "benefits-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Partnership Benefits",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "benefits-grid",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "id": "benefit-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-1-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-rocket",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Accelerate Time to Market",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>Why build patient communication features from scratch? Our proven platform integrates quickly, letting you offer sophisticated functionality in weeks, not years. Focus your development resources on your core platform while we handle the complexities of patient engagement.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "benefit-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-2-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-dollar-sign",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "New Revenue Streams",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>Transform patient communication into a value-add module that your customers will pay for. Whether you choose revenue sharing or white-label licensing, our partnership models are designed to create profitable growth for your business.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "benefit-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-3-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-shield-alt",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Reduce Customer Churn",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>Practices that invest in patient communication tools are more engaged with their PMS. By offering best-in-class patient engagement, you increase customer satisfaction and stickiness, making it harder for competitors to lure your customers away.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "benefit-4-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-4-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-user-shield",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-4-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Maintain Your Brand",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-4-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>Full white-label capabilities mean you control the customer experience. Brand it as your own, customize the interface, and present it as a native feature of your platform. Your customers will see your brand, not ours – unless you want to co-brand.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "benefit-5-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-5-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-cogs",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-5-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Continuous Innovation",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-5-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>Our specialist team continuously enhances the platform with new features, regulatory updates, and performance improvements. Your customers automatically benefit from ongoing innovation without any additional development burden on your team.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "benefit-6-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "30",
+              "bottom": "40",
+              "left": "30"
+            }
+          },
+          "elements": [
+            {
+              "id": "benefit-6-icon",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "icon": "fas fa-handshake",
+                "primary_color": "#3E92CC",
+                "size": {
+                  "unit": "px",
+                  "size": 50
+                }
+              }
+            },
+            {
+              "id": "benefit-6-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Partnership Support",
+                "header_size": "h3",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 26
+                }
+              }
+            },
+            {
+              "id": "benefit-6-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 16px; line-height: 1.8;'>We're not just a technology provider – we're your partner. Our team provides technical integration support, marketing materials, customer training resources, and ongoing account management to ensure mutual success.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integration-process",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "process-heading-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "process-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Simple Integration Process",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "process-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>We've designed our integration process to be straightforward and developer-friendly. Here's how we work together:</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "process-steps",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "step-1-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "step-1-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "01",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "step-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Discovery Call",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "step-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>We discuss your platform, customer needs, and partnership goals to ensure alignment.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "step-2-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "step-2-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "02",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "step-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Technical Review",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "step-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Our technical team reviews your API architecture and plans the integration approach.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "step-3-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "step-3-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "03",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "step-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Integration & Testing",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "step-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>We work closely with your dev team through implementation and thorough testing phases.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "step-4-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "step-4-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "04",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "step-4-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Launch & Support",
+                "header_size": "h4",
+                "align": "center",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 20
+                }
+              }
+            },
+            {
+              "id": "step-4-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Go live with confidence, backed by our ongoing technical and customer success support.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-cta",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "background_background": "gradient",
+        "background_color": "#0A2463",
+        "background_color_b": "#3E92CC"
+      },
+      "elements": [
+        {
+          "id": "why-cta-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "why-cta-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ready to Discuss Partnership?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "why-cta-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 18px; max-width: 600px; margin: 20px auto 40px;'>Let's explore how Dataphiles can enhance your platform and create value for your customers.</p>"
+              }
+            },
+            {
+              "id": "why-cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Become a Partner",
+                "link": {
+                  "url": "/become-a-partner"
+                },
+                "align": "center",
+                "size": "lg",
+                "button_background_color": "#FF6B35",
+                "button_text_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18
+                },
+                "button_padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "50",
+                  "bottom": "20",
+                  "left": "50"
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "size": 5
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
