@@ -38,11 +38,31 @@
           },
           "elements": [
             {
+              "id": "hero-tagline",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Engage, Evolve, Expand",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24
+                },
+                "typography_font_weight": "600",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.4
+                }
+              }
+            },
+            {
               "id": "hero-heading",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "The Platform Powering Patient Engagement in Healthcare",
+                "title": "Specialist Patient Engagement for Healthcare Platforms",
                 "header_size": "h1",
                 "align": "center",
                 "title_color": "#FFFFFF",
@@ -63,7 +83,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; line-height: 1.6; max-width: 800px; margin: 30px auto;'>Dataphiles provides the specialist patient communication technology that powers successful healthcare systems. We integrate seamlessly with practice management software to enhance functionality and improve patient experiences.</p>"
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; line-height: 1.6; max-width: 800px; margin: 30px auto;'>Dataphiles delivers enterprise-grade patient communication tools that integrate seamlessly with your platform. Our specialist team partners with you to drive revenue, improve efficiency, and let you focus on what matters most—patient care.</p>"
               }
             },
             {
@@ -132,6 +152,123 @@
       ]
     },
     {
+      "id": "stats-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "stat-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "stat-1-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "10M+",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "stat-1-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 16px;'>Patient interactions per year<br><span style='font-size: 14px;'>(14% of UK population)</span></p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stat-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "stat-2-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "2000+",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "stat-2-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 16px;'>Healthcare locations powered</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stat-col-3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "stat-3-number",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "18+",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "#3E92CC",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 48
+                },
+                "typography_font_weight": "700"
+              }
+            },
+            {
+              "id": "stat-3-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 16px;'>Years of specialist expertise</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "value-proposition",
       "elType": "section",
       "settings": {
@@ -144,7 +281,7 @@
           "bottom": "80",
           "left": "20"
         },
-        "background_color": "#F8F9FA"
+        "background_color": "#FFFFFF"
       },
       "elements": [
         {
@@ -159,7 +296,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "Why Leading Healthcare Systems Choose Dataphiles",
+                "title": "Your Trusted Partner for Patient Engagement",
                 "header_size": "h2",
                 "align": "center",
                 "title_color": "#0A2463",
@@ -175,7 +312,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>Purpose-built by patient communication specialists with 18+ years of expertise. Our platform enhances your system while preserving your brand identity.</p>"
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 800px; margin: 20px auto 60px;'>We're not just a technology provider—we're your partner in delivering exceptional patient engagement. Our specialist team works alongside you to integrate enterprise-grade tools that drive revenue and create competitive advantage.</p>"
               }
             }
           ]
@@ -195,7 +332,7 @@
           "bottom": "80",
           "left": "20"
         },
-        "background_color": "#F8F9FA"
+        "background_color": "#FFFFFF"
       },
       "elements": [
         {
@@ -239,7 +376,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D;'>API-first architecture that integrates smoothly with your existing practice management systems. No disruption, just enhanced capability.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>API-first architecture that connects smoothly with PMS/EHR platforms and healthcare systems. No disruption, just enhanced capability.</p>"
               }
             }
           ]
@@ -256,7 +393,7 @@
               "elType": "widget",
               "widgetType": "icon",
               "settings": {
-                "icon": "fas fa-tags",
+                "icon": "fas fa-pound-sign",
                 "primary_color": "#3E92CC",
                 "size": {
                   "unit": "px",
@@ -270,7 +407,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "White-Label Ready",
+                "title": "Drive Revenue",
                 "header_size": "h3",
                 "align": "center",
                 "title_color": "#0A2463",
@@ -285,7 +422,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D;'>Fully customizable to match your brand identity. Deploy under your name or co-brand – the choice is yours.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Secure up-front revenue with flexible business models. Better cashflow, predictable income, and competitive advantage for your business.</p>"
               }
             }
           ]
@@ -302,7 +439,7 @@
               "elType": "widget",
               "widgetType": "icon",
               "settings": {
-                "icon": "fas fa-chart-line",
+                "icon": "fas fa-users-cog",
                 "primary_color": "#3E92CC",
                 "size": {
                   "unit": "px",
@@ -316,7 +453,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "Proven at Scale",
+                "title": "Expert Consultancy",
                 "header_size": "h3",
                 "align": "center",
                 "title_color": "#0A2463",
@@ -331,7 +468,117 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D;'>Already powering major implementations across healthcare. Scalable, reliable, and continuously enhanced by our specialist team.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Our specialist team advises, guides, and delivers. We're not just integrating software—we're dedicated partners solving your patient engagement challenges.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enterprise-section",
+      "elType": "section",
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "background_color": "#F8F9FA"
+      },
+      "elements": [
+        {
+          "id": "enterprise-col-1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "enterprise-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Enterprise-Grade Tools for All",
+                "header_size": "h2",
+                "title_color": "#0A2463",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38
+                }
+              }
+            },
+            {
+              "id": "enterprise-text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>Our platform delivers enterprise-grade patient engagement tools in the most streamlined, efficient way possible. Whether serving large healthcare groups or independent locations, the same powerful capabilities are available.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>By handling patient engagement excellence, we give your customers a competitive edge—letting them focus on what they do best: delivering outstanding patient care and outcomes.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "enterprise-col-2",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "background_color": "#FFFFFF",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "35",
+              "bottom": "40",
+              "left": "35"
+            },
+            "border_radius": {
+              "unit": "px",
+              "size": 8
+            }
+          },
+          "elements": [
+            {
+              "id": "enterprise-benefits",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "Scalable across enterprise and independent locations",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Specialist patient engagement focus",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Dedicated team supporting your success",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "White-label or co-branded deployment",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Continuous enhancement and innovation",
+                    "icon": "fas fa-check-circle"
+                  },
+                  {
+                    "text": "Proven reliability at scale",
+                    "icon": "fas fa-check-circle"
+                  }
+                ],
+                "icon_color": "#3E92CC",
+                "text_color": "#5A6C7D",
+                "space_between": {
+                  "unit": "px",
+                  "size": 15
+                }
               }
             }
           ]
@@ -366,7 +613,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "Specialist Solutions Across Healthcare Sectors",
+                "title": "Proven Across Healthcare Sectors",
                 "header_size": "h2",
                 "align": "center",
                 "title_color": "#0A2463",
@@ -381,7 +628,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>From dentistry to optometry, primary to secondary care – our platform adapts to the unique needs of each healthcare vertical.</p>"
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 60px;'>Our platform adapts to the unique needs of different healthcare sectors, from dentistry to optometry, primary to secondary care.</p>"
               }
             }
           ]
@@ -443,7 +690,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D;'>Established presence powering major dental platforms and practices.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Established partnerships powering major dental platforms and healthcare groups.</p>"
               }
             }
           ]
@@ -487,7 +734,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D;'>Growing partnerships bringing enhanced patient engagement to optical practices.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D;'>Growing partnerships bringing enhanced patient engagement to optical healthcare organizations.</p>"
               }
             }
           ]
@@ -612,7 +859,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "PatientComms: Our Reference Implementation",
+                "title": "PatientComms: See It In Action",
                 "header_size": "h2",
                 "title_color": "#0A2463",
                 "typography_font_size": {
@@ -626,7 +873,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='font-size: 18px; color: #5A6C7D; line-height: 1.8;'>PatientComms demonstrates the full capabilities of our platform in action. It showcases how our technology enhances patient engagement, streamlines communication, and improves practice efficiency.</p><p style='font-size: 18px; color: #5A6C7D; line-height: 1.8; margin-top: 20px;'>Whether you choose to white-label our solution or integrate under your own brand, PatientComms serves as proof of what's possible.</p>"
+                "editor": "<p style='font-size: 18px; color: #5A6C7D; line-height: 1.8;'>PatientComms demonstrates our platform's full capabilities. It shows how our technology delivers better patient engagement, streamlined communication, and improved operational efficiency.</p><p style='font-size: 18px; color: #5A6C7D; line-height: 1.8; margin-top: 20px;'>Whether you white-label our solution or integrate under your own brand, PatientComms proves what's achievable.</p>"
               }
             },
             {
@@ -740,7 +987,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "Ready to Enhance Your Healthcare Platform?",
+                "title": "Ready to Partner with Us?",
                 "header_size": "h2",
                 "align": "center",
                 "title_color": "#FFFFFF",
@@ -755,7 +1002,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 700px; margin: 20px auto 40px;'>Join leading healthcare systems that trust Dataphiles to power their patient engagement. Let's discuss how we can integrate with your platform.</p>"
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 700px; margin: 20px auto 40px;'>Join healthcare platforms that trust Dataphiles to deliver specialist patient engagement. Let's discuss how we can drive revenue and efficiency together.</p>"
               }
             },
             {
