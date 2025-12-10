@@ -127,7 +127,7 @@
                     "custom_id": "company",
                     "field_type": "text",
                     "field_label": "Company Name",
-                    "placeholder": "Your company or organization",
+                    "placeholder": "Your company or organisation",
                     "required": true,
                     "width": "50"
                   },

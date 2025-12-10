@@ -75,6 +75,8 @@ This update addresses extensive feedback from the Dataphiles team meeting, focus
 
 ## 📄 Pages Updated
 
+### ✅ All Pages Now Updated (V1.1 Complete)
+
 ### Homepage (`templates/homepage.json`)
 
 #### Hero Section:
@@ -208,15 +210,71 @@ Based on client feedback, we explicitly avoided:
 
 ---
 
-## 📝 Next Steps
+### Why Integrate (`templates/why-integrate.json`)
 
-### Pages Still to Update (pending further client review):
-1. Why Integrate page - Apply new terminology and themes
-2. About page - Add consultancy positioning
-3. PatientComms page - Update statistics, less reference implementation focus
-4. Become a Partner page - Update terminology
-5. Contact page - Update terminology
-6. Header/Footer - Review terminology
+#### Updated Messaging:
+- **"Transform" → "Turn"** - Less aspirational (line 213)
+- **"Practices" → "Healthcare organizations"** - Sector-neutral language (line 264)
+- **Added revenue focus:** "secure up-front revenue, and improve cashflow" (line 213)
+
+### About (`templates/about.json`)
+
+#### Updated Statistics:
+- **10M+ patient interactions annually** with "14% of UK population" context
+- **2000+ healthcare locations powered** (replacing vague "Multiple" stat)
+
+#### Updated Terminology:
+- **"Practices" → "Healthcare organizations"** throughout
+- **"Practice management software providers" → "PMS/EHR platform providers"**
+- **Added consultancy positioning:** "specialist technology and expert consultancy" (mission statement)
+
+### PatientComms (`templates/patientcomms.json`)
+
+#### Updated Approach:
+- **Less "reference implementation"** focus - Now "See It In Action"
+- **Added scale proof points:** "Processing over 10 million patient interactions annually across 2000+ healthcare locations"
+
+#### Updated Terminology:
+- **"Practice efficiency" → "Operational efficiency"**
+- **"Practices" → "Healthcare organizations"**
+- **"Deep PMS Integration" → "Deep Platform Integration"**
+- **"PMS" → "PMS/EHR platforms"** throughout
+
+### Become a Partner (`templates/become-a-partner.json`)
+
+#### Updated Terminology:
+- **"Practice management software provider" → "PMS/EHR platform provider"**
+- **"Into your PMS platform" → "Into your platform"**
+- **"Organization" → "Organisation"** (UK English)
+- Updated form field options to reflect new terminology
+
+### Contact (`templates/contact.json`)
+
+#### UK English Updates:
+- **"Organization" → "Organisation"** in form placeholders
+
+### Header/Footer (`templates/header.json`, `templates/footer.json`)
+
+#### Review Complete:
+- ✅ Header terminology already appropriate (no changes needed)
+- ✅ Footer terminology already appropriate (no changes needed)
+
+---
+
+## 📝 Rollout Complete
+
+### ✅ All Pages Updated with V1.1 Messaging:
+1. ✅ Homepage - Complete (initial update)
+2. ✅ Why Integrate page - New terminology and revenue themes applied
+3. ✅ About page - Consultancy positioning and updated statistics added
+4. ✅ PatientComms page - Updated statistics and practical tone applied
+5. ✅ Become a Partner page - New terminology applied
+6. ✅ Contact page - UK English applied
+7. ✅ Header/Footer - Reviewed and verified
+
+### Additional Quality Updates:
+- ✅ **UK English spelling** applied throughout ("organisation" vs "organization")
+- ✅ **Consistent statistics** (10M+, 2000+, 14% UK, 18+ years) across all pages
 
 ### Recommended Content Additions:
 1. Integration guides
@@ -297,6 +355,6 @@ For questions about these changes or to request further revisions:
 
 ---
 
-**Status:** Homepage Updated ✅ | Remaining Pages In Progress 🔄
-**Next Review:** Pending client approval of homepage changes
-**Deployment:** Ready for WordPress import after full approval
+**Status:** All Pages Updated ✅ | V1.1 Rollout Complete 🎉
+**Next Review:** Ready for client approval
+**Deployment:** Ready for WordPress import

@@ -48,7 +48,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; max-width: 800px; margin: 20px auto;'>A powerful demonstration of what the Dataphiles platform can deliver: comprehensive patient engagement, seamless communication, and enhanced practice efficiency.</p>"
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 22px; max-width: 800px; margin: 20px auto;'>See the Dataphiles platform in action: comprehensive patient engagement, seamless communication, and enhanced operational efficiency delivering real results.</p>"
               }
             }
           ]
@@ -97,7 +97,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms is our reference implementation—a complete patient communication solution that demonstrates the full power of the Dataphiles platform in action.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>While PatientComms operates as its own branded solution, it serves as proof of what integration partners can achieve using our technology. Every feature, every integration point, and every capability you see in PatientComms is available for your platform.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Whether you choose to white-label our solution or integrate specific components, PatientComms demonstrates the depth and sophistication of what's possible.</p>"
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms is a complete patient communication solution powered by Dataphiles—demonstrating the full capabilities of our platform in a real-world application.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Processing over 10 million patient interactions annually across 2000+ healthcare locations, PatientComms proves what our technology can deliver. Every feature, every integration point, and every capability you see is available for your platform.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Whether you choose to white-label our solution or integrate specific components, PatientComms shows the depth and sophistication of what's possible.</p>"
               }
             }
           ]
@@ -206,7 +206,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 50px;'>PatientComms includes everything practices need to engage effectively with patients—and everything partners need to deliver comprehensive solutions.</p>"
+                "editor": "<p style='text-align: center; font-size: 18px; color: #5A6C7D; max-width: 700px; margin: 20px auto 50px;'>PatientComms includes everything healthcare organizations need to engage effectively with patients—and everything partners need to deliver comprehensive solutions.</p>"
               }
             }
           ]
@@ -456,7 +456,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Online forms and questionnaires</li><li>Digital consent management</li><li>Pre-appointment forms</li><li>Medical history updates</li><li>Direct PMS integration</li></ul>"
+                "editor": "<ul style='color: #5A6C7D; line-height: 2;'><li>Online forms and questionnaires</li><li>Digital consent management</li><li>Pre-appointment forms</li><li>Medical history updates</li><li>Direct platform integration</li></ul>"
               }
             }
           ]
@@ -608,7 +608,7 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "title": "Deep PMS Integration",
+                "title": "Deep Platform Integration",
                 "header_size": "h2",
                 "title_color": "#0A2463",
                 "typography_font_size": {
@@ -622,7 +622,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms demonstrates seamless integration with practice management systems. Patient data, appointment schedules, treatment plans, and medical histories flow bidirectionally, ensuring accuracy and eliminating duplicate data entry.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>This same integration capability is available for your platform, with flexible APIs that adapt to your existing data structures and workflows.</p>"
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>PatientComms demonstrates seamless integration with PMS/EHR platforms. Patient data, appointment schedules, treatment plans, and medical histories flow bidirectionally, ensuring accuracy and eliminating duplicate data entry.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>This same integration capability is available for your platform, with flexible APIs that adapt to your existing data structures and workflows.</p>"
               }
             }
           ]

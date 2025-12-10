@@ -48,7 +48,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 800px; margin: 20px auto;'>For over 18 years, Dataphiles has been developing and refining the technology that connects healthcare practices with their patients.</p>"
+                "editor": "<p style='text-align: center; color: #FFFFFF; font-size: 20px; max-width: 800px; margin: 20px auto;'>For over 18 years, Dataphiles has been developing and refining the technology that connects healthcare organizations with their patients.</p>"
               }
             }
           ]
@@ -97,7 +97,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>Dataphiles began with a simple but powerful insight: healthcare practices needed better ways to communicate with their patients, but building this technology wasn't their core expertise.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>What started as a solution for dental practices has evolved into a comprehensive platform serving multiple healthcare verticals. Our focus has sharpened too – rather than selling directly to practices, we now partner with practice management software providers to deliver our technology where it creates the most value.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Today, we power patient communication for some of the largest healthcare platforms in the UK, processing millions of patient interactions annually.</p>"
+                "editor": "<p style='color: #5A6C7D; font-size: 17px; line-height: 1.8;'>Dataphiles began with a simple but powerful insight: healthcare organizations needed better ways to communicate with their patients, but building this technology wasn't their core expertise.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>What started as a solution for dental organizations has evolved into a comprehensive platform serving multiple healthcare verticals. Our focus has sharpened too – rather than selling directly to healthcare locations, we now partner with PMS/EHR platform providers to deliver our specialist technology and consultancy where it creates the most value.</p><p style='color: #5A6C7D; font-size: 17px; line-height: 1.8; margin-top: 15px;'>Today, we power patient communication for some of the largest healthcare platforms in the UK, processing over 10 million patient interactions annually—reaching 14% of the UK population across 2000+ healthcare locations.</p>"
               }
             }
           ]
@@ -159,7 +159,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 0;'>Millions</p><p style='color: #5A6C7D;'>Patient interactions processed annually</p>"
+                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 0;'>10M+</p><p style='color: #5A6C7D;'>Patient interactions annually (14% of UK population)</p>"
               }
             },
             {
@@ -167,7 +167,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 30px 0 0 0;'>Multiple</p><p style='color: #5A6C7D;'>Healthcare sectors served</p>"
+                "editor": "<p style='color: #3E92CC; font-size: 36px; font-weight: 700; margin: 30px 0 0 0;'>2000+</p><p style='color: #5A6C7D;'>Healthcare locations powered</p>"
               }
             }
           ]
@@ -217,7 +217,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 20px; line-height: 1.8; max-width: 900px; margin: 30px auto;'>To power seamless, effective patient engagement across healthcare by providing the specialist technology that practice management systems need – enabling better communication, improved patient experiences, and more efficient practice operations.</p>"
+                "editor": "<p style='text-align: center; color: #5A6C7D; font-size: 20px; line-height: 1.8; max-width: 900px; margin: 30px auto;'>To power seamless, effective patient engagement across healthcare by providing the specialist technology and expert consultancy that healthcare platforms need – enabling better communication, improved patient experiences, and more efficient operations.</p>"
               }
             }
           ]
