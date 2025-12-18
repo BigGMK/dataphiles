@@ -1,0 +1,105 @@
+/**
+ * SPARK EFFECTS CSS REFERENCE
+ *
+ * This file contains the spark effects CSS that was removed from the main widget
+ * for performance optimization. To re-enable sparks:
+ *
+ * 1. Copy the JavaScript methods back into dynamic-text.js DynamicTextWidget class
+ * 2. Copy the CSS below into dynamic-text.css
+ * 3. Re-enable the PHP controls in class-dynamic-text-widget.php
+ * 4. Add spark containers back to the render() method HTML output
+ *
+ * @package Dataphiles
+ * @since 1.0.6
+ */
+
+/* ==================== */
+/* Spark Effects        */
+/* ==================== */
+
+.dataphiles-dynamic-text__sparks {
+	position: absolute;
+	bottom: 0;
+	width: 30px;
+	height: 100%;
+	pointer-events: none;
+	overflow: visible;
+}
+
+.dataphiles-dynamic-text__sparks--left {
+	right: 100%;
+	margin-right: 5px;
+}
+
+.dataphiles-dynamic-text__sparks--right {
+	left: 100%;
+	margin-left: 5px;
+}
+
+/* Individual spark particle - soft glowing circle */
+.dataphiles-dynamic-text__spark {
+	position: absolute;
+	bottom: 0;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	will-change: transform, opacity;
+	/* Soft glow effect */
+	filter: blur(1px);
+}
+
+/* Outer glow halo */
+.dataphiles-dynamic-text__spark::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 250%;
+	height: 250%;
+	border-radius: 50%;
+	background: radial-gradient(circle, currentColor 0%, transparent 70%);
+	opacity: 0.4;
+}
+
+/* Trail effect - soft fading line behind the spark */
+.dataphiles-dynamic-text__spark--trail::after {
+	content: '';
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 3px;
+	height: 0;
+	border-radius: 2px;
+	background: linear-gradient(to bottom, currentColor 0%, transparent 100%);
+	opacity: 0.6;
+	transition: height 0.2s ease-out, opacity 0.4s ease-out;
+}
+
+.dataphiles-dynamic-text__spark--trail.is-animating::after {
+	height: 20px;
+}
+
+/* Spark animation keyframes */
+@keyframes sparkRise {
+	0% {
+		opacity: 1;
+		transform: translateY(0) translateX(0) scale(1);
+	}
+	20% {
+		opacity: 1;
+		transform: translateY(-20px) translateX(var(--spark-drift, 5px)) scale(1.1);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-80px) translateX(var(--spark-drift-end, 10px)) scale(0.3);
+	}
+}
+
+/* Accessibility - hide sparks for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	.dataphiles-dynamic-text__spark {
+		display: none;
+	}
+}

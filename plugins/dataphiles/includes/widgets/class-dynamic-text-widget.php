@@ -803,13 +803,6 @@ class Dynamic_Text_Widget extends Widget_Base {
 			'enterDirection'       => $settings['enter_direction'],
 			'exitDirection'        => $settings['exit_direction'],
 			'pauseOnHover'         => 'yes' === $settings['pause_on_hover'],
-			// Spark settings (disabled but kept for future use).
-			'sparksEnabled'        => 'yes' === ( $settings['sparks_enabled'] ?? '' ),
-			'sparksCount'          => absint( $settings['sparks_count'] ?? 3 ),
-			'sparksColor'          => $settings['sparks_color'] ?? '#ff9500',
-			'sparksSize'           => absint( $settings['sparks_size']['size'] ?? 6 ),
-			'sparksTrail'          => 'yes' === ( $settings['sparks_trail'] ?? '' ),
-			'sparksDuration'       => absint( $settings['sparks_duration'] ?? 1000 ),
 			'entries'              => $entries_data,
 		];
 
@@ -827,7 +820,6 @@ class Dynamic_Text_Widget extends Widget_Base {
 
 			<div class="dataphiles-dynamic-text__entry">
 				<div class="dataphiles-dynamic-text__impact-wrapper">
-					<div class="dataphiles-dynamic-text__sparks dataphiles-dynamic-text__sparks--left"></div>
 					<<?php echo esc_html( $impact_tag ); ?> class="dataphiles-dynamic-text__impact">
 						<?php if ( 'image' === $first_entry['content_type'] && ! empty( $first_entry['impact_image']['url'] ) ) : ?>
 							<img src="<?php echo esc_url( $first_entry['impact_image']['url'] ); ?>" alt="<?php echo esc_attr( $first_entry['impact_image']['alt'] ?? '' ); ?>" />
@@ -835,7 +827,6 @@ class Dynamic_Text_Widget extends Widget_Base {
 							<?php echo esc_html( $first_entry['impact_text'] ); ?>
 						<?php endif; ?>
 					</<?php echo esc_html( $impact_tag ); ?>>
-					<div class="dataphiles-dynamic-text__sparks dataphiles-dynamic-text__sparks--right"></div>
 				</div>
 
 				<<?php echo esc_html( $subline_tag ); ?> class="dataphiles-dynamic-text__subline">
@@ -867,7 +858,6 @@ class Dynamic_Text_Widget extends Widget_Base {
 		<div class="dataphiles-dynamic-text">
 			<div class="dataphiles-dynamic-text__entry dataphiles-dynamic-text__entry--editor">
 				<div class="dataphiles-dynamic-text__impact-wrapper">
-					<div class="dataphiles-dynamic-text__sparks dataphiles-dynamic-text__sparks--left"></div>
 					<{{{ impactTag }}} class="dataphiles-dynamic-text__impact dataphiles-dynamic-text__impact--visible">
 						<# if ( isImage ) { #>
 							<img src="{{{ firstEntry.impact_image.url }}}" alt="{{{ firstEntry.impact_image.alt || '' }}}" />
@@ -875,7 +865,6 @@ class Dynamic_Text_Widget extends Widget_Base {
 							{{{ impactText }}}
 						<# } #>
 					</{{{ impactTag }}}>
-					<div class="dataphiles-dynamic-text__sparks dataphiles-dynamic-text__sparks--right"></div>
 				</div>
 
 				<{{{ sublineTag }}} class="dataphiles-dynamic-text__subline dataphiles-dynamic-text__subline--visible">
