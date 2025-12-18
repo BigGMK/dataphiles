@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="283" height="51" viewBox="0 0 283 51">
+  <!-- Animation: Typing indicator style - rotating colors -->
   <defs>
     <clipPath id="clip-Logo">
       <rect width="283" height="51"/>
@@ -30,4 +32,103 @@
       </g>
     </g>
   </g>
+  <script type="text/javascript">
+    <![CDATA[
+      (function() {
+        // Three colors: 40% opacity, 70% opacity, 100% opacity (all same blue)
+        var colors = [
+          'rgba(49,143,218,0.4)',
+          'rgba(49,143,218,0.7)',
+          'rgba(49,143,218,1)'
+        ];
+
+        // Default colors for each circle
+        var defaultColors = [
+          'rgba(49,143,218,0.4)',  // Ellipse_1 - lightest
+          'rgba(49,143,218,0.7)',  // Ellipse_2 - medium
+          'rgba(49,143,218,1)'     // Ellipse_3 - full
+        ];
+
+        var typingDuration = 2000; // 2 seconds of animation
+        var staticDuration = 5000; // 5 seconds of static display
+        var rotateDelay = 300; // Delay between each color rotation
+
+        var circles = [
+          document.getElementById('Ellipse_1'),
+          document.getElementById('Ellipse_2'),
+          document.getElementById('Ellipse_3')
+        ];
+
+        var isAnimating = false;
+        var animationTimer = null;
+
+        function resetToDefault() {
+          for (var i = 0; i < circles.length; i++) {
+            circles[i].setAttribute('fill', defaultColors[i]);
+          }
+        }
+
+        function rotateSequence() {
+          if (!isAnimating) return;
+
+          var colorIndex = 0;
+
+          function rotateColors() {
+            if (!isAnimating) return;
+
+            // Rotate colors: each circle gets the next color in sequence
+            for (var i = 0; i < circles.length; i++) {
+              var idx = (colorIndex + i) % colors.length;
+              circles[i].setAttribute('fill', colors[idx]);
+            }
+
+            // Move to next rotation
+            colorIndex = (colorIndex + 1) % colors.length;
+
+            // Continue the sequence
+            animationTimer = setTimeout(rotateColors, rotateDelay);
+          }
+
+          rotateColors();
+        }
+
+        function runAnimation() {
+          // Start animation phase
+          isAnimating = true;
+          rotateSequence();
+
+          // After animation duration, stop and reset to default
+          setTimeout(function() {
+            isAnimating = false;
+            if (animationTimer) {
+              clearTimeout(animationTimer);
+              animationTimer = null;
+            }
+            resetToDefault();
+
+            // After static duration, start again
+            setTimeout(runAnimation, staticDuration);
+          }, typingDuration);
+        }
+
+        // Start animation when SVG loads
+        // Use setTimeout to ensure DOM is fully ready when embedded via <object>
+        function init() {
+          // Verify circles are accessible
+          if (circles[0] && circles[1] && circles[2]) {
+            runAnimation();
+          } else {
+            // Retry after a short delay if elements not found
+            setTimeout(init, 50);
+          }
+        }
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          setTimeout(init, 0);
+        } else {
+          document.addEventListener('DOMContentLoaded', init);
+        }
+      })();
+    ]]>
+  </script>
 </svg>
