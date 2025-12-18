@@ -53,7 +53,7 @@
 
         var rects = document.querySelectorAll('#animated-rects rect');
         var originalColors = [];
-        var flickerTimers = [];
+        var isFlickering = false;
 
         // Store original colors based on class
         for (var i = 0; i < rects.length; i++) {
@@ -72,12 +72,11 @@
 
         function startFlickerForRect(rect) {
           function flicker() {
+            if (!isFlickering) return; // Stop if flicker phase ended
             rect.style.fill = getRandomColor();
-            return setTimeout(function() {
-              flicker();
-            }, getRandomInterval());
+            setTimeout(flicker, getRandomInterval());
           }
-          return flicker();
+          flicker();
         }
 
         function resetToDefault() {
@@ -86,23 +85,16 @@
           }
         }
 
-        function stopAllFlickers() {
-          for (var i = 0; i < flickerTimers.length; i++) {
-            clearTimeout(flickerTimers[i]);
-          }
-          flickerTimers = [];
-        }
-
         function runAnimation() {
-          // Start flicker phase - each rect flickers independently
-          flickerTimers = [];
+          // Start flicker phase
+          isFlickering = true;
           for (var i = 0; i < rects.length; i++) {
-            flickerTimers.push(startFlickerForRect(rects[i]));
+            startFlickerForRect(rects[i]);
           }
 
           // After flicker duration, stop and reset to default
           setTimeout(function() {
-            stopAllFlickers();
+            isFlickering = false;
             resetToDefault();
 
             // After default duration, start again
