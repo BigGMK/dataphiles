@@ -22,6 +22,7 @@
 			this.timeoutIds = [];
 
 			// Get DOM elements
+			this.entryEl = element.querySelector('.dataphiles-dynamic-text__entry');
 			this.impactEl = element.querySelector('.dataphiles-dynamic-text__impact');
 			this.sublineEl = element.querySelector('.dataphiles-dynamic-text__subline');
 
@@ -40,6 +41,9 @@
 		}
 
 		init() {
+			// Calculate and lock container height to prevent layout shifts
+			this.lockContainerHeight();
+
 			// Bind hover events if pause on hover is enabled
 			if (this.settings.pauseOnHover) {
 				this.element.addEventListener('mouseenter', () => this.pause());
@@ -48,6 +52,65 @@
 
 			// Start the animation cycle
 			this.startCycle();
+		}
+
+		/**
+		 * Calculate the maximum height needed for all entries and lock the container
+		 */
+		lockContainerHeight() {
+			// Store original styles
+			const originalOpacity = this.impactEl.style.opacity;
+			const originalTransform = this.impactEl.style.transform;
+			const originalSubOpacity = this.sublineEl.style.opacity;
+			const originalSubTransform = this.sublineEl.style.transform;
+
+			// Temporarily make elements visible for measurement
+			this.impactEl.style.opacity = '1';
+			this.impactEl.style.transform = 'none';
+			this.sublineEl.style.opacity = '1';
+			this.sublineEl.style.transform = 'none';
+
+			let maxHeight = 0;
+
+			// Measure each entry
+			this.settings.entries.forEach((entry) => {
+				// Set content
+				if (entry.contentType === 'image' && entry.imageUrl) {
+					this.impactEl.innerHTML = '<img src="' + entry.imageUrl + '" alt="' + (entry.imageAlt || '') + '" />';
+				} else {
+					this.impactEl.textContent = entry.impact || '';
+				}
+				this.sublineEl.textContent = entry.subline;
+
+				// Force reflow
+				void this.entryEl.offsetHeight;
+
+				// Measure
+				const height = this.entryEl.offsetHeight;
+				if (height > maxHeight) {
+					maxHeight = height;
+				}
+			});
+
+			// Set minimum height on container
+			if (maxHeight > 0) {
+				this.element.style.minHeight = maxHeight + 'px';
+			}
+
+			// Restore original styles
+			this.impactEl.style.opacity = originalOpacity;
+			this.impactEl.style.transform = originalTransform;
+			this.sublineEl.style.opacity = originalSubOpacity;
+			this.sublineEl.style.transform = originalSubTransform;
+
+			// Reset to first entry content
+			const firstEntry = this.settings.entries[0];
+			if (firstEntry.contentType === 'image' && firstEntry.imageUrl) {
+				this.impactEl.innerHTML = '<img src="' + firstEntry.imageUrl + '" alt="' + (firstEntry.imageAlt || '') + '" />';
+			} else {
+				this.impactEl.textContent = firstEntry.impact || '';
+			}
+			this.sublineEl.textContent = firstEntry.subline;
 		}
 
 		startCycle() {

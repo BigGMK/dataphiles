@@ -11,8 +11,8 @@
 }
 
 .dataphiles-dynamic-text__entry {
-	display: flex;
-	flex-direction: column;
+	position: relative;
+	width: 100%;
 }
 
 .dataphiles-dynamic-text__impact,
@@ -22,6 +22,8 @@
 	opacity: 0;
 	transition-property: opacity, transform;
 	transition-timing-function: ease-out;
+	/* Prevent height collapse during animation */
+	visibility: visible;
 }
 
 /* Image inside impact element */
