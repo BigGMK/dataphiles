@@ -78,10 +78,14 @@
 			// Store original styles
 			const originalOpacity = this.impactEl.style.opacity;
 			const originalTransform = this.impactEl.style.transform;
+			const originalTransition = this.impactEl.style.transition;
 			const originalSubOpacity = this.sublineEl.style.opacity;
 			const originalSubTransform = this.sublineEl.style.transform;
+			const originalSubTransition = this.sublineEl.style.transition;
 
-			// Temporarily make elements visible for measurement
+			// Disable transitions and make elements visible for measurement
+			this.impactEl.style.transition = 'none';
+			this.sublineEl.style.transition = 'none';
 			this.impactEl.style.opacity = '1';
 			this.impactEl.style.transform = 'none';
 			this.sublineEl.style.opacity = '1';
@@ -117,8 +121,10 @@
 			// Restore original styles
 			this.impactEl.style.opacity = originalOpacity;
 			this.impactEl.style.transform = originalTransform;
+			this.impactEl.style.transition = originalTransition;
 			this.sublineEl.style.opacity = originalSubOpacity;
 			this.sublineEl.style.transform = originalSubTransform;
+			this.sublineEl.style.transition = originalSubTransition;
 
 			// Reset to first entry content
 			const firstEntry = this.settings.entries[0];
@@ -162,12 +168,14 @@
 			const enterDir = this.settings.enterDirection || 'down';
 			this.element.dataset.enterDirection = enterDir;
 
-			// Set transition durations for enter
-			this.impactEl.style.transitionDuration = this.settings.impactEnterDuration + 'ms';
-			this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
-
 			// Set initial state based on content type
 			const dropDist = this.settings.dropDistance || 50;
+			const impactDuration = this.settings.impactEnterDuration;
+			const sublineDuration = this.settings.sublineEnterDuration;
+
+			// Disable transitions initially to set starting position without animation
+			this.impactEl.style.transition = 'none';
+			this.sublineEl.style.transition = 'none';
 
 			if (isImage) {
 				// Images/SVGs: fade only, no transform animation
@@ -184,16 +192,30 @@
 				}
 			}
 			this.impactEl.style.opacity = '0';
-			log('Initial state set - opacity: 0, transform:', this.impactEl.style.transform);
+			this.sublineEl.style.opacity = '0';
+			// Set initial subline position (always uses direction animation)
+			if (enterDir === 'down') {
+				this.sublineEl.style.transform = `translateY(-${dropDist}px)`;
+			} else {
+				this.sublineEl.style.transform = `translateY(${dropDist}px)`;
+			}
+			log('Initial state set - impact opacity: 0, transform:', this.impactEl.style.transform);
+			log('Initial state set - subline opacity: 0, transform:', this.sublineEl.style.transform);
 
 			// Force reflow to ensure initial position is painted
 			void this.impactEl.offsetHeight;
+			void this.sublineEl.offsetHeight;
 
 			// Use double requestAnimationFrame for reliable paint timing
 			requestAnimationFrame(() => {
 				requestAnimationFrame(() => {
+					// Enable transitions with full property definition
+					this.impactEl.style.transition = `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`;
+					this.sublineEl.style.transition = `opacity ${sublineDuration}ms ease-out, transform ${sublineDuration}ms ease-out`;
+
 					// Impact enters - animate to visible
 					log('RAF callback - animating to visible');
+					log('Transition set:', `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`);
 					this.impactEl.style.transform = 'translateY(0)';
 					this.impactEl.style.opacity = '1';
 					this.impactEl.classList.add('is-visible');
@@ -204,6 +226,8 @@
 			// Step 2: After delay, subline fades in
 			this.addTimeout(() => {
 				log('Subline entering');
+				this.sublineEl.style.opacity = '1';
+				this.sublineEl.style.transform = 'translateY(0)';
 				this.sublineEl.classList.add('is-visible');
 			}, this.settings.impactEnterDuration + this.settings.sublineDelay);
 
@@ -226,16 +250,21 @@
 		exitEntry() {
 			const entry = this.settings.entries[this.currentIndex];
 			const isImage = entry.contentType === 'image' && entry.imageUrl;
+			const dropDist = this.settings.dropDistance || 50;
+			const impactExitDuration = this.settings.impactExitDuration;
+			const sublineExitDuration = this.settings.sublineExitDuration;
 
 			log('exitEntry() - Index:', this.currentIndex, 'isImage:', isImage);
 
-			// Set exit transition durations
-			this.impactEl.style.transitionDuration = this.settings.impactExitDuration + 'ms';
-			this.sublineEl.style.transitionDuration = this.settings.sublineExitDuration + 'ms';
+			// Set exit transitions
+			this.impactEl.style.transition = `opacity ${impactExitDuration}ms ease-out, transform ${impactExitDuration}ms ease-out`;
+			this.sublineEl.style.transition = `opacity ${sublineExitDuration}ms ease-out, transform ${sublineExitDuration}ms ease-out`;
 
-			// Determine exit class based on exit direction
-			const exitClass = this.settings.exitDirection === 'up' ? 'is-exiting-up' : 'is-exiting-down';
-			log('Exit direction:', this.settings.exitDirection, 'Exit class:', exitClass);
+			// Determine exit direction and transform
+			const exitDir = this.settings.exitDirection || 'down';
+			const exitTransform = exitDir === 'up' ? `translateY(-${dropDist}px)` : `translateY(${dropDist}px)`;
+			const exitClass = exitDir === 'up' ? 'is-exiting-up' : 'is-exiting-down';
+			log('Exit direction:', exitDir, 'Exit transform:', exitTransform);
 
 			// Images/SVGs: fade only exit
 			if (isImage) {
@@ -248,11 +277,15 @@
 				// Text: use transform exit animation
 				this.impactEl.classList.remove('is-visible');
 				this.impactEl.classList.add(exitClass);
+				this.impactEl.style.opacity = '0';
+				this.impactEl.style.transform = exitTransform;
 			}
 
 			// Subline always uses transform animation
 			this.sublineEl.classList.remove('is-visible');
 			this.sublineEl.classList.add(exitClass);
+			this.sublineEl.style.opacity = '0';
+			this.sublineEl.style.transform = exitTransform;
 
 			// After exit animation completes, wait for delay then show next entry
 			const maxExitDuration = Math.max(this.settings.impactExitDuration, this.settings.sublineExitDuration);
