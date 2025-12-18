@@ -20,23 +20,48 @@
 	margin: 0;
 	padding: 0;
 	opacity: 0;
-	transform: translateY(var(--drop-distance, 50px));
 	transition-property: opacity, transform;
 	transition-timing-function: ease-out;
 }
 
-/* Initial visible state */
+/* Image inside impact element */
+.dataphiles-dynamic-text__impact img {
+	display: block;
+	margin: 0 auto;
+	height: auto;
+}
+
+/* Enter from top (drop down) - starts above */
+.dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__impact,
+.dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__subline {
+	transform: translateY(calc(var(--drop-distance, 50px) * -1));
+}
+
+/* Enter from bottom (rise up) - starts below */
+.dataphiles-dynamic-text[data-enter-direction="up"] .dataphiles-dynamic-text__impact,
+.dataphiles-dynamic-text[data-enter-direction="up"] .dataphiles-dynamic-text__subline {
+	transform: translateY(var(--drop-distance, 50px));
+}
+
+/* Visible state - centered */
 .dataphiles-dynamic-text__impact.is-visible,
 .dataphiles-dynamic-text__subline.is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-/* Exit state - drop down and fade out */
-.dataphiles-dynamic-text__impact.is-exiting,
-.dataphiles-dynamic-text__subline.is-exiting {
+/* Exit down - drops below */
+.dataphiles-dynamic-text__impact.is-exiting-down,
+.dataphiles-dynamic-text__subline.is-exiting-down {
 	opacity: 0;
 	transform: translateY(var(--drop-distance, 50px));
+}
+
+/* Exit up - rises above */
+.dataphiles-dynamic-text__impact.is-exiting-up,
+.dataphiles-dynamic-text__subline.is-exiting-up {
+	opacity: 0;
+	transform: translateY(calc(var(--drop-distance, 50px) * -1));
 }
 
 /* Pause animation on hover when enabled */
@@ -45,10 +70,20 @@
 	transition: none;
 }
 
+/* Editor preview - always visible */
+.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__impact--visible,
+.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__subline--visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 /* Editor preview note */
 .dataphiles-dynamic-text__preview-note {
+	font-size: 12px;
+	color: #999;
+	margin-top: 10px;
 	font-style: italic;
-	opacity: 0.7;
+	text-align: center;
 }
 
 /* Accessibility - reduce motion */

@@ -32,6 +32,9 @@
 			// Set CSS custom property for drop distance
 			element.style.setProperty('--drop-distance', this.settings.dropDistance + 'px');
 
+			// Set data attribute for enter direction (used by CSS)
+			element.dataset.enterDirection = this.settings.enterDirection || 'down';
+
 			// Initialize
 			this.init();
 		}
@@ -55,52 +58,72 @@
 		showEntry() {
 			const entry = this.settings.entries[this.currentIndex];
 
-			// Update text content
-			this.impactEl.textContent = entry.impact;
+			// Update content based on type
+			if (entry.contentType === 'image' && entry.imageUrl) {
+				this.impactEl.innerHTML = '<img src="' + entry.imageUrl + '" alt="' + (entry.imageAlt || '') + '" />';
+			} else {
+				this.impactEl.textContent = entry.impact || '';
+			}
 			this.sublineEl.textContent = entry.subline;
 
-			// Reset state
-			this.impactEl.classList.remove('is-visible', 'is-exiting');
-			this.sublineEl.classList.remove('is-visible', 'is-exiting');
+			// Reset state - remove all animation classes
+			this.impactEl.classList.remove('is-visible', 'is-exiting-down', 'is-exiting-up');
+			this.sublineEl.classList.remove('is-visible', 'is-exiting-down', 'is-exiting-up');
 
-			// Set transition durations
+			// Update enter direction data attribute
+			this.element.dataset.enterDirection = this.settings.enterDirection || 'down';
+
+			// Set transition durations for enter
 			this.impactEl.style.transitionDuration = this.settings.impactEnterDuration + 'ms';
+			this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
 
 			// Trigger reflow to ensure animation starts fresh
 			void this.impactEl.offsetHeight;
 
-			// Step 1: Impact text drops in and fades in
+			// Step 1: Impact text enters (drops in or rises up, depending on direction)
 			this.impactEl.classList.add('is-visible');
 
 			// Step 2: After delay, subline fades in
 			this.addTimeout(() => {
-				this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
 				this.sublineEl.classList.add('is-visible');
 			}, this.settings.impactEnterDuration + this.settings.sublineDelay);
 
 			// Step 3: After display duration, start exit animation
+			// Use per-entry custom duration if set, otherwise use default
+			const displayDuration = entry.displayDuration !== undefined
+				? entry.displayDuration
+				: this.settings.displayDuration;
+
 			const totalEnterTime = this.settings.impactEnterDuration + this.settings.sublineDelay + this.settings.sublineEnterDuration;
 
 			this.addTimeout(() => {
 				this.exitEntry();
-			}, totalEnterTime + this.settings.displayDuration);
+			}, totalEnterTime + displayDuration);
 		}
 
 		exitEntry() {
-			// Set exit transition duration
-			this.impactEl.style.transitionDuration = this.settings.exitDuration + 'ms';
-			this.sublineEl.style.transitionDuration = this.settings.exitDuration + 'ms';
+			// Set exit transition durations (separate for impact and subline)
+			this.impactEl.style.transitionDuration = this.settings.impactExitDuration + 'ms';
+			this.sublineEl.style.transitionDuration = this.settings.sublineExitDuration + 'ms';
+
+			// Determine exit class based on exit direction
+			const exitClass = this.settings.exitDirection === 'up' ? 'is-exiting-up' : 'is-exiting-down';
 
 			// Both elements exit together
 			this.impactEl.classList.remove('is-visible');
-			this.impactEl.classList.add('is-exiting');
+			this.impactEl.classList.add(exitClass);
 			this.sublineEl.classList.remove('is-visible');
-			this.sublineEl.classList.add('is-exiting');
+			this.sublineEl.classList.add(exitClass);
 
-			// After exit animation completes, show next entry
+			// After exit animation completes, wait for delay then show next entry
+			const maxExitDuration = Math.max(this.settings.impactExitDuration, this.settings.sublineExitDuration);
+
 			this.addTimeout(() => {
-				this.nextEntry();
-			}, this.settings.exitDuration);
+				// Additional delay between entries
+				this.addTimeout(() => {
+					this.nextEntry();
+				}, this.settings.delayBetweenEntries || 0);
+			}, maxExitDuration);
 		}
 
 		nextEntry() {
@@ -143,17 +166,19 @@
 			this.isPaused = false;
 			this.element.classList.remove('is-paused');
 
-			// Resume from current state - check if we need to exit or continue
-			// For simplicity, we'll restart the current entry display
-			const entry = this.settings.entries[this.currentIndex];
-
-			// If text is visible, schedule the exit
+			// Check current state and resume appropriately
 			if (this.impactEl.classList.contains('is-visible') && this.sublineEl.classList.contains('is-visible')) {
+				// Both visible - schedule exit
+				const entry = this.settings.entries[this.currentIndex];
+				const displayDuration = entry.displayDuration !== undefined
+					? entry.displayDuration
+					: this.settings.displayDuration;
+
 				this.addTimeout(() => {
 					this.exitEntry();
-				}, this.settings.displayDuration);
-			} else if (this.impactEl.classList.contains('is-exiting')) {
-				// If already exiting, let it complete then show next
+				}, displayDuration);
+			} else if (this.impactEl.classList.contains('is-exiting-down') || this.impactEl.classList.contains('is-exiting-up')) {
+				// Already exiting - move to next
 				this.addTimeout(() => {
 					this.nextEntry();
 				}, 100);
