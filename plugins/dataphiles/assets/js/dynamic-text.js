@@ -142,11 +142,16 @@
 			this.impactEl.style.transitionDuration = this.settings.impactEnterDuration + 'ms';
 			this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
 
-			// Trigger reflow to ensure animation starts fresh
-			void this.impactEl.offsetHeight;
+			// Force reflow on parent to ensure CSS transforms are applied
+			void this.entryEl.offsetHeight;
 
-			// Step 1: Impact text enters (drops in or rises up, depending on direction)
-			this.impactEl.classList.add('is-visible');
+			// Use double requestAnimationFrame for reliable paint timing
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => {
+					// Step 1: Impact text enters (drops in or rises up, depending on direction)
+					this.impactEl.classList.add('is-visible');
+				});
+			});
 
 			// Trigger sparks when impact text appears
 			if (this.settings.sparksEnabled) {
