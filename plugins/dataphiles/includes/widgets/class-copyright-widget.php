@@ -83,7 +83,7 @@ class Copyright_Widget extends Widget_Base {
         $this->add_control(
             'start_year',
             [
-                'label'       => esc_html__( 'Copyright Start Year', 'dataphiles' ),
+                'label'       => esc_html__( 'Copyright start year', 'dataphiles' ),
                 'type'        => Controls_Manager::NUMBER,
                 'default'     => gmdate( 'Y' ),
                 'min'         => 1900,
@@ -95,7 +95,7 @@ class Copyright_Widget extends Widget_Base {
         $this->add_control(
             'company_name',
             [
-                'label'       => esc_html__( 'Company Name', 'dataphiles' ),
+                'label'       => esc_html__( 'Company name', 'dataphiles' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => esc_html__( 'Company Name', 'dataphiles' ),
                 'placeholder' => esc_html__( 'Enter your company name', 'dataphiles' ),
@@ -119,28 +119,6 @@ class Copyright_Widget extends Widget_Base {
                     'active' => true,
                 ],
                 'description' => esc_html__( 'Optional: Add a link to your company name.', 'dataphiles' ),
-            ]
-        );
-
-        $this->add_control(
-            'text_before',
-            [
-                'label'       => esc_html__( 'Text Before', 'dataphiles' ),
-                'type'        => Controls_Manager::WYSIWYG,
-                'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear before the copyright', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline before the copyright symbol. You can include links.', 'dataphiles' ),
-            ]
-        );
-
-        $this->add_control(
-            'text_after',
-            [
-                'label'       => esc_html__( 'Text After', 'dataphiles' ),
-                'type'        => Controls_Manager::WYSIWYG,
-                'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear after the copyright', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline after "All rights reserved." You can include links.', 'dataphiles' ),
             ]
         );
 
@@ -172,6 +150,39 @@ class Copyright_Widget extends Widget_Base {
 
         $this->end_controls_section();
 
+        // Additional Text Section (collapsed by default)
+        $this->start_controls_section(
+            'section_additional_text',
+            [
+                'label' => esc_html__( 'Additional text', 'dataphiles' ),
+                'tab'   => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'text_before',
+            [
+                'label'       => esc_html__( 'Text before', 'dataphiles' ),
+                'type'        => Controls_Manager::WYSIWYG,
+                'default'     => '',
+                'placeholder' => esc_html__( 'Optional text to appear before the copyright', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline before the copyright symbol. You can include links.', 'dataphiles' ),
+            ]
+        );
+
+        $this->add_control(
+            'text_after',
+            [
+                'label'       => esc_html__( 'Text after', 'dataphiles' ),
+                'type'        => Controls_Manager::WYSIWYG,
+                'default'     => '',
+                'placeholder' => esc_html__( 'Optional text to appear after the copyright', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline after "All rights reserved." You can include links.', 'dataphiles' ),
+            ]
+        );
+
+        $this->end_controls_section();
+
         // Style Section
         $this->start_controls_section(
             'section_style',
@@ -195,7 +206,7 @@ class Copyright_Widget extends Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Text color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'global'    => [
                     'default' => Global_Colors::COLOR_TEXT,
@@ -218,7 +229,7 @@ class Copyright_Widget extends Widget_Base {
         $this->add_control(
             'link_color',
             [
-                'label'     => esc_html__( 'Link Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Link color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'global'    => [
                     'default' => Global_Colors::COLOR_ACCENT,
@@ -232,7 +243,7 @@ class Copyright_Widget extends Widget_Base {
         $this->add_control(
             'link_hover_color',
             [
-                'label'     => esc_html__( 'Link Hover Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Link hover color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .dataphiles-copyright a:hover' => 'color: {{VALUE}};',
