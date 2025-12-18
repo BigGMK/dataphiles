@@ -237,7 +237,7 @@ class Copyright_Widget extends Widget_Base {
         }
 
         // If start year is in the past, return range format
-        return $start_year . ' - ' . $current_year;
+        return $start_year . '-' . $current_year;
     }
 
     /**
@@ -288,7 +288,7 @@ class Copyright_Widget extends Widget_Base {
         if ( parseInt( startYear ) >= currentYear ) {
             yearDisplay = currentYear.toString();
         } else {
-            yearDisplay = startYear + ' - ' + currentYear;
+            yearDisplay = startYear + '-' + currentYear;
         }
 
         var companyName = settings.company_name || '';
