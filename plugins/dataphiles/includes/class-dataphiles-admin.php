@@ -67,8 +67,14 @@ class Dataphiles_Admin {
             'dataphiles-settings'
         );
 
-        // Placeholder for future settings fields
-        // Additional fields can be added here as development progresses
+        // Dynamic Text Debug Logging
+        add_settings_field(
+            'dynamic_text_debug',
+            __( 'Dynamic Text Debug Logging', 'dataphiles' ),
+            [ $this, 'render_dynamic_text_debug_field' ],
+            'dataphiles-settings',
+            'dataphiles_general_section'
+        );
     }
 
     /**
@@ -78,7 +84,7 @@ class Dataphiles_Admin {
      */
     private function get_default_settings() {
         return [
-            // Add default settings here as needed
+            'dynamic_text_debug' => false,
         ];
     }
 
@@ -91,13 +97,27 @@ class Dataphiles_Admin {
     public function sanitize_settings( $input ) {
         $sanitized = [];
 
-        // Sanitize settings as they are added
-        // Example:
-        // if ( isset( $input['setting_name'] ) ) {
-        //     $sanitized['setting_name'] = sanitize_text_field( $input['setting_name'] );
-        // }
+        // Dynamic Text Debug Logging
+        $sanitized['dynamic_text_debug'] = ! empty( $input['dynamic_text_debug'] );
 
         return $sanitized;
+    }
+
+    /**
+     * Render Dynamic Text Debug field.
+     */
+    public function render_dynamic_text_debug_field() {
+        $settings = get_option( self::OPTION_NAME, $this->get_default_settings() );
+        $checked  = ! empty( $settings['dynamic_text_debug'] );
+        ?>
+        <label>
+            <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[dynamic_text_debug]" value="1" <?php checked( $checked ); ?> />
+            <?php esc_html_e( 'Enable debug logging in browser console for the Dynamic Text widget', 'dataphiles' ); ?>
+        </label>
+        <p class="description">
+            <?php esc_html_e( 'When enabled, detailed animation logs will be output to the browser developer console. Useful for troubleshooting.', 'dataphiles' ); ?>
+        </p>
+        <?php
     }
 
     /**
@@ -161,16 +181,8 @@ class Dataphiles_Admin {
                 <?php
                 settings_fields( 'dataphiles_settings_group' );
                 do_settings_sections( 'dataphiles-settings' );
+                submit_button( __( 'Save Settings', 'dataphiles' ) );
                 ?>
-
-                <div class="dataphiles-settings-placeholder">
-                    <div class="dataphiles-info-box">
-                        <h3><?php esc_html_e( 'Coming Soon', 'dataphiles' ); ?></h3>
-                        <p><?php esc_html_e( 'Additional settings and features will be added here in future updates.', 'dataphiles' ); ?></p>
-                    </div>
-                </div>
-
-                <?php submit_button( __( 'Save Settings', 'dataphiles' ) ); ?>
             </form>
 
             <div class="dataphiles-admin-footer">

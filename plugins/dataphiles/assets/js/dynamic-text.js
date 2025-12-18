@@ -13,8 +13,8 @@
 	/**
 	 * DynamicTextWidget class
 	 */
-	// Debug logging helper
-	const DEBUG = true;
+	// Debug logging helper - controlled by WordPress settings
+	const DEBUG = typeof dataphilesSettings !== 'undefined' && dataphilesSettings.debug;
 	const log = (...args) => DEBUG && console.log('[DynamicText]', ...args);
 
 	class DynamicTextWidget {
@@ -157,10 +157,11 @@
 		showEntry() {
 			const entry = this.settings.entries[this.currentIndex];
 			const isImage = entry.contentType === 'image' && entry.imageUrl;
+			const isSvg = isImage && entry.imageUrl.match(/\.svg$/i);
 
 			log('showEntry() - Index:', this.currentIndex);
 			log('Entry data:', entry);
-			log('Is image/SVG:', isImage);
+			log('Is image/SVG:', isImage, 'Is SVG object:', isSvg);
 
 			// Update content based on type
 			if (isImage) {
@@ -214,26 +215,65 @@
 			log('Initial state set - impact opacity: 0, transform:', this.impactEl.style.transform);
 			log('Initial state set - subline opacity: 0, transform:', this.sublineEl.style.transform);
 
+			// For SVG objects, also set initial opacity on the object element itself
+			const objectEl = isSvg ? this.impactEl.querySelector('object') : null;
+			if (objectEl) {
+				objectEl.style.opacity = '0';
+				objectEl.style.transition = 'none';
+			}
+
 			// Force reflow to ensure initial position is painted
 			void this.impactEl.offsetHeight;
 			void this.sublineEl.offsetHeight;
 
-			// Use double requestAnimationFrame for reliable paint timing
-			requestAnimationFrame(() => {
+			// Function to start the animation
+			const startAnimation = () => {
 				requestAnimationFrame(() => {
-					// Enable transitions with full property definition
-					this.impactEl.style.transition = `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`;
-					this.sublineEl.style.transition = `opacity ${sublineDuration}ms ease-out, transform ${sublineDuration}ms ease-out`;
+					requestAnimationFrame(() => {
+						// Enable transitions with full property definition
+						this.impactEl.style.transition = `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`;
+						this.sublineEl.style.transition = `opacity ${sublineDuration}ms ease-out, transform ${sublineDuration}ms ease-out`;
 
-					// Impact enters - animate to visible
-					log('RAF callback - animating to visible');
-					log('Transition set:', `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`);
-					this.impactEl.style.transform = 'translateY(0)';
-					this.impactEl.style.opacity = '1';
-					this.impactEl.classList.add('is-visible');
-					log('Animation started - transform: translateY(0), opacity: 1');
+						// For SVG objects, transition the object element too
+						if (objectEl) {
+							objectEl.style.transition = `opacity ${impactDuration}ms ease-out`;
+							objectEl.style.opacity = '1';
+						}
+
+						// Impact enters - animate to visible
+						log('RAF callback - animating to visible');
+						log('Transition set:', `opacity ${impactDuration}ms ease-out, transform ${impactDuration}ms ease-out`);
+						this.impactEl.style.transform = 'translateY(0)';
+						this.impactEl.style.opacity = '1';
+						this.impactEl.classList.add('is-visible');
+						log('Animation started - transform: translateY(0), opacity: 1');
+					});
 				});
-			});
+			};
+
+			// For SVG objects, wait for the object to load before animating
+			if (objectEl) {
+				log('Waiting for SVG object to load...');
+				// Check if already loaded
+				if (objectEl.contentDocument) {
+					log('SVG object already loaded');
+					startAnimation();
+				} else {
+					objectEl.addEventListener('load', () => {
+						log('SVG object loaded');
+						startAnimation();
+					}, { once: true });
+					// Fallback timeout in case load event doesn't fire
+					setTimeout(() => {
+						if (this.impactEl.style.opacity === '0') {
+							log('SVG load timeout - forcing animation');
+							startAnimation();
+						}
+					}, 100);
+				}
+			} else {
+				startAnimation();
+			}
 
 			// Step 2: After delay, subline fades in
 			this.addTimeout(() => {
@@ -262,6 +302,7 @@
 		exitEntry() {
 			const entry = this.settings.entries[this.currentIndex];
 			const isImage = entry.contentType === 'image' && entry.imageUrl;
+			const isSvg = isImage && entry.imageUrl.match(/\.svg$/i);
 			const dropDist = this.settings.dropDistance || 50;
 			const impactExitDuration = this.settings.impactExitDuration;
 			const sublineExitDuration = this.settings.sublineExitDuration;
@@ -277,6 +318,13 @@
 			const exitTransform = exitDir === 'up' ? `translateY(-${dropDist}px)` : `translateY(${dropDist}px)`;
 			const exitClass = exitDir === 'up' ? 'is-exiting-up' : 'is-exiting-down';
 			log('Exit direction:', exitDir, 'Exit transform:', exitTransform);
+
+			// For SVG objects, also fade out the object element itself
+			const objectEl = isSvg ? this.impactEl.querySelector('object') : null;
+			if (objectEl) {
+				objectEl.style.transition = `opacity ${impactExitDuration}ms ease-out`;
+				objectEl.style.opacity = '0';
+			}
 
 			// Images/SVGs: fade only exit
 			if (isImage) {
