@@ -6,6 +6,21 @@
     max-width: 800px;
 }
 
+.dataphiles-admin-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dataphiles-version {
+    font-size: 12px;
+    font-weight: normal;
+    background: #2271b1;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
 .dataphiles-admin-header {
     background: #fff;
     padding: 20px;

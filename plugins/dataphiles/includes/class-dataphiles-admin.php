@@ -146,7 +146,10 @@ class Dataphiles_Admin {
         settings_errors( 'dataphiles_messages' );
         ?>
         <div class="wrap dataphiles-admin-wrap">
-            <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+            <h1>
+                <?php echo esc_html( get_admin_page_title() ); ?>
+                <span class="dataphiles-version"><?php echo esc_html( 'v' . DATAPHILES_VERSION ); ?></span>
+            </h1>
 
             <div class="dataphiles-admin-header">
                 <p class="description">

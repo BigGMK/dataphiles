@@ -150,7 +150,7 @@ class Copyright_Widget extends Widget_Base {
 
         $this->end_controls_section();
 
-        // Additional Text Section (collapsed by default)
+        // Additional Text Section
         $this->start_controls_section(
             'section_additional_text',
             [
@@ -160,26 +160,62 @@ class Copyright_Widget extends Widget_Base {
         );
 
         $this->add_control(
+            'show_text_before',
+            [
+                'label'        => esc_html__( 'Text before', 'dataphiles' ),
+                'type'         => Controls_Manager::POPOVER_TOGGLE,
+                'label_off'    => esc_html__( 'None', 'dataphiles' ),
+                'label_on'     => esc_html__( 'Custom', 'dataphiles' ),
+                'return_value' => 'yes',
+            ]
+        );
+
+        $this->start_popover();
+
+        $this->add_control(
             'text_before',
             [
-                'label'       => esc_html__( 'Text before', 'dataphiles' ),
+                'label'       => esc_html__( 'Content', 'dataphiles' ),
                 'type'        => Controls_Manager::WYSIWYG,
                 'default'     => '',
                 'placeholder' => esc_html__( 'Optional text to appear before the copyright', 'dataphiles' ),
                 'description' => esc_html__( 'This text will appear inline before the copyright symbol. You can include links.', 'dataphiles' ),
+                'condition'   => [
+                    'show_text_before' => 'yes',
+                ],
             ]
         );
+
+        $this->end_popover();
+
+        $this->add_control(
+            'show_text_after',
+            [
+                'label'        => esc_html__( 'Text after', 'dataphiles' ),
+                'type'         => Controls_Manager::POPOVER_TOGGLE,
+                'label_off'    => esc_html__( 'None', 'dataphiles' ),
+                'label_on'     => esc_html__( 'Custom', 'dataphiles' ),
+                'return_value' => 'yes',
+            ]
+        );
+
+        $this->start_popover();
 
         $this->add_control(
             'text_after',
             [
-                'label'       => esc_html__( 'Text after', 'dataphiles' ),
+                'label'       => esc_html__( 'Content', 'dataphiles' ),
                 'type'        => Controls_Manager::WYSIWYG,
                 'default'     => '',
                 'placeholder' => esc_html__( 'Optional text to appear after the copyright', 'dataphiles' ),
                 'description' => esc_html__( 'This text will appear inline after "All rights reserved." You can include links.', 'dataphiles' ),
+                'condition'   => [
+                    'show_text_after' => 'yes',
+                ],
             ]
         );
+
+        $this->end_popover();
 
         $this->end_controls_section();
 
