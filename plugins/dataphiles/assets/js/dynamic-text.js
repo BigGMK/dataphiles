@@ -25,6 +25,8 @@
 			this.entryEl = element.querySelector('.dataphiles-dynamic-text__entry');
 			this.impactEl = element.querySelector('.dataphiles-dynamic-text__impact');
 			this.sublineEl = element.querySelector('.dataphiles-dynamic-text__subline');
+			this.sparksLeftEl = element.querySelector('.dataphiles-dynamic-text__sparks--left');
+			this.sparksRightEl = element.querySelector('.dataphiles-dynamic-text__sparks--right');
 
 			if (!this.impactEl || !this.sublineEl || !this.settings.entries || this.settings.entries.length === 0) {
 				return;
@@ -146,6 +148,13 @@
 			// Step 1: Impact text enters (drops in or rises up, depending on direction)
 			this.impactEl.classList.add('is-visible');
 
+			// Trigger sparks when impact text appears
+			if (this.settings.sparksEnabled) {
+				this.addTimeout(() => {
+					this.triggerSparks();
+				}, this.settings.impactEnterDuration * 0.3); // Sparks appear partway through animation
+			}
+
 			// Step 2: After delay, subline fades in
 			this.addTimeout(() => {
 				this.sublineEl.classList.add('is-visible');
@@ -162,6 +171,115 @@
 			this.addTimeout(() => {
 				this.exitEntry();
 			}, totalEnterTime + displayDuration);
+		}
+
+		/**
+		 * Create and animate spark particles
+		 */
+		triggerSparks() {
+			if (!this.sparksLeftEl || !this.sparksRightEl) return;
+
+			const count = this.settings.sparksCount || 3;
+			const color = this.settings.sparksColor || '#ff9500';
+			const size = this.settings.sparksSize || 6;
+			const showTrail = this.settings.sparksTrail;
+			const duration = this.settings.sparksDuration || 1000;
+
+			// Create sparks for left side
+			for (let i = 0; i < count; i++) {
+				this.createSpark(this.sparksLeftEl, color, size, showTrail, duration, 'left', i, count);
+			}
+
+			// Create sparks for right side
+			for (let i = 0; i < count; i++) {
+				this.createSpark(this.sparksRightEl, color, size, showTrail, duration, 'right', i, count);
+			}
+		}
+
+		/**
+		 * Create a single spark particle
+		 */
+		createSpark(container, color, size, showTrail, duration, side, index, total) {
+			const spark = document.createElement('div');
+			spark.className = 'dataphiles-dynamic-text__spark';
+			if (showTrail) {
+				spark.classList.add('dataphiles-dynamic-text__spark--trail');
+			}
+
+			// Random positioning within container
+			const startX = side === 'left'
+				? Math.random() * 20 + 5  // 5-25px from right edge
+				: Math.random() * 20 + 5; // 5-25px from left edge
+
+			// Stagger the start positions vertically
+			const startY = (index / total) * 10;
+
+			// Random drift for natural movement
+			const driftMid = (Math.random() - 0.5) * 15;
+			const driftEnd = driftMid + (Math.random() - 0.5) * 20;
+
+			// Apply styles
+			spark.style.cssText = `
+				width: ${size}px;
+				height: ${size}px;
+				background: ${color};
+				color: ${color};
+				left: ${side === 'left' ? 'auto' : startX + 'px'};
+				right: ${side === 'left' ? startX + 'px' : 'auto'};
+				bottom: ${startY}px;
+				box-shadow: 0 0 ${size}px ${color}, 0 0 ${size * 2}px ${color};
+			`;
+
+			// Set custom properties for animation
+			spark.style.setProperty('--spark-drift', driftMid + 'px');
+			spark.style.setProperty('--spark-drift-end', driftEnd + 'px');
+
+			container.appendChild(spark);
+
+			// Stagger the animation start
+			const delay = (index / total) * (duration * 0.2);
+
+			setTimeout(() => {
+				// Add trail animation class
+				if (showTrail) {
+					spark.classList.add('is-animating');
+				}
+
+				// Animate using Web Animations API for smooth easing
+				const animation = spark.animate([
+					{
+						opacity: 0,
+						transform: 'translateY(0) translateX(0) scale(0.5)'
+					},
+					{
+						opacity: 1,
+						transform: `translateY(-15px) translateX(${driftMid * 0.3}px) scale(1.2)`,
+						offset: 0.15
+					},
+					{
+						opacity: 1,
+						transform: `translateY(-30px) translateX(${driftMid * 0.6}px) scale(1)`,
+						offset: 0.35
+					},
+					{
+						opacity: 0.7,
+						transform: `translateY(-50px) translateX(${driftMid}px) scale(0.8)`,
+						offset: 0.6
+					},
+					{
+						opacity: 0,
+						transform: `translateY(-70px) translateX(${driftEnd}px) scale(0.3)`
+					}
+				], {
+					duration: duration,
+					easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', // Slow start, accelerate at end
+					fill: 'forwards'
+				});
+
+				animation.onfinish = () => {
+					spark.remove();
+				};
+			}, delay);
 		}
 
 		exitEntry() {
