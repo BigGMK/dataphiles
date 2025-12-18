@@ -50,6 +50,18 @@
 	max-width: 100%;
 }
 
+/* SVG sizing - provide default dimensions (overridden by Elementor width control) */
+.dataphiles-dynamic-text__impact img[src$=".svg"] {
+	width: 200px;
+	height: auto;
+}
+
+.dataphiles-dynamic-text__impact svg {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+}
+
 /* Enter from top (drop down) - starts above */
 .dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__impact,
 .dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__subline {
