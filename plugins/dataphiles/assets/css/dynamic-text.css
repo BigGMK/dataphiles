@@ -1,0 +1,60 @@
+/**
+ * Dataphiles Dynamic Text Widget Styles
+ *
+ * @package Dataphiles
+ * @since 1.0.3
+ */
+
+.dataphiles-dynamic-text {
+	position: relative;
+	overflow: hidden;
+}
+
+.dataphiles-dynamic-text__entry {
+	display: flex;
+	flex-direction: column;
+}
+
+.dataphiles-dynamic-text__impact,
+.dataphiles-dynamic-text__subline {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	transform: translateY(var(--drop-distance, 50px));
+	transition-property: opacity, transform;
+	transition-timing-function: ease-out;
+}
+
+/* Initial visible state */
+.dataphiles-dynamic-text__impact.is-visible,
+.dataphiles-dynamic-text__subline.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Exit state - drop down and fade out */
+.dataphiles-dynamic-text__impact.is-exiting,
+.dataphiles-dynamic-text__subline.is-exiting {
+	opacity: 0;
+	transform: translateY(var(--drop-distance, 50px));
+}
+
+/* Pause animation on hover when enabled */
+.dataphiles-dynamic-text.is-paused .dataphiles-dynamic-text__impact,
+.dataphiles-dynamic-text.is-paused .dataphiles-dynamic-text__subline {
+	transition: none;
+}
+
+/* Editor preview note */
+.dataphiles-dynamic-text__preview-note {
+	font-style: italic;
+	opacity: 0.7;
+}
+
+/* Accessibility - reduce motion */
+@media (prefers-reduced-motion: reduce) {
+	.dataphiles-dynamic-text__impact,
+	.dataphiles-dynamic-text__subline {
+		transition-duration: 0.01ms !important;
+	}
+}

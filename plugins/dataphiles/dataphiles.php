@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dataphiles Bespoke Settings
  * Description: Custom Elementor widgets and settings for Dataphiles websites.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Gregor MacKenzie
  * Author URI: https://highland.health
  * Text Domain: dataphiles
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'DATAPHILES_VERSION', '1.0.2' );
+define( 'DATAPHILES_VERSION', '1.0.3' );
 define( 'DATAPHILES_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DATAPHILES_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -95,6 +95,10 @@ final class Dataphiles_Plugin {
 
         // Register widget category
         add_action( 'elementor/elements/categories_registered', [ $this, 'add_elementor_widget_categories' ] );
+
+        // Register frontend scripts and styles
+        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_frontend_scripts' ] );
+        add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_frontend_styles' ] );
     }
 
     /**
@@ -184,9 +188,36 @@ final class Dataphiles_Plugin {
     public function register_widgets( $widgets_manager ) {
         require_once DATAPHILES_PLUGIN_DIR . 'includes/widgets/class-copyright-widget.php';
         require_once DATAPHILES_PLUGIN_DIR . 'includes/widgets/class-company-registration-widget.php';
+        require_once DATAPHILES_PLUGIN_DIR . 'includes/widgets/class-dynamic-text-widget.php';
 
         $widgets_manager->register( new \Dataphiles\Widgets\Copyright_Widget() );
         $widgets_manager->register( new \Dataphiles\Widgets\Company_Registration_Widget() );
+        $widgets_manager->register( new \Dataphiles\Widgets\Dynamic_Text_Widget() );
+    }
+
+    /**
+     * Register frontend scripts.
+     */
+    public function register_frontend_scripts() {
+        wp_register_script(
+            'dataphiles-dynamic-text',
+            DATAPHILES_PLUGIN_URL . 'assets/js/dynamic-text.js',
+            [],
+            DATAPHILES_VERSION,
+            true
+        );
+    }
+
+    /**
+     * Register frontend styles.
+     */
+    public function register_frontend_styles() {
+        wp_register_style(
+            'dataphiles-dynamic-text',
+            DATAPHILES_PLUGIN_URL . 'assets/css/dynamic-text.css',
+            [],
+            DATAPHILES_VERSION
+        );
     }
 }
 
