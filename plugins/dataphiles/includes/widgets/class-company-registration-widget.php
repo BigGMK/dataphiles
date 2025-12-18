@@ -1,6 +1,6 @@
 <?php
 /**
- * Dataphiles Copyright Widget
+ * Dataphiles Company Registration Widget
  *
  * @package Dataphiles
  */
@@ -18,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Copyright Widget Class
+ * Company Registration Widget Class
  */
-class Copyright_Widget extends Widget_Base {
+class Company_Registration_Widget extends Widget_Base {
 
     /**
      * Get widget name.
@@ -28,7 +28,7 @@ class Copyright_Widget extends Widget_Base {
      * @return string
      */
     public function get_name() {
-        return 'dataphiles-copyright';
+        return 'dataphiles-company-registration';
     }
 
     /**
@@ -37,7 +37,7 @@ class Copyright_Widget extends Widget_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Copyright', 'dataphiles' );
+        return esc_html__( 'Company Registration', 'dataphiles' );
     }
 
     /**
@@ -46,7 +46,7 @@ class Copyright_Widget extends Widget_Base {
      * @return string
      */
     public function get_icon() {
-        return 'eicon-footer';
+        return 'eicon-document-file';
     }
 
     /**
@@ -64,7 +64,7 @@ class Copyright_Widget extends Widget_Base {
      * @return array
      */
     public function get_keywords() {
-        return [ 'copyright', 'footer', 'year', 'dataphiles' ];
+        return [ 'company', 'registration', 'registered', 'office', 'number', 'footer', 'dataphiles' ];
     }
 
     /**
@@ -81,24 +81,12 @@ class Copyright_Widget extends Widget_Base {
         );
 
         $this->add_control(
-            'start_year',
+            'registered_number',
             [
-                'label'       => esc_html__( 'Copyright Start Year', 'dataphiles' ),
-                'type'        => Controls_Manager::NUMBER,
-                'default'     => gmdate( 'Y' ),
-                'min'         => 1900,
-                'max'         => 2100,
-                'description' => esc_html__( 'Enter the year your copyright started. If this year is in the past, a date range will be displayed.', 'dataphiles' ),
-            ]
-        );
-
-        $this->add_control(
-            'company_name',
-            [
-                'label'       => esc_html__( 'Company Name', 'dataphiles' ),
+                'label'       => esc_html__( 'Registered Number', 'dataphiles' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Company Name', 'dataphiles' ),
-                'placeholder' => esc_html__( 'Enter your company name', 'dataphiles' ),
+                'default'     => '',
+                'placeholder' => esc_html__( 'e.g. 04599161', 'dataphiles' ),
                 'label_block' => true,
                 'dynamic'     => [
                     'active' => true,
@@ -107,18 +95,16 @@ class Copyright_Widget extends Widget_Base {
         );
 
         $this->add_control(
-            'company_url',
+            'registered_office',
             [
-                'label'       => esc_html__( 'Company URL', 'dataphiles' ),
-                'type'        => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-company.com', 'dataphiles' ),
-                'default'     => [
-                    'url' => '',
-                ],
+                'label'       => esc_html__( 'Registered Office', 'dataphiles' ),
+                'type'        => Controls_Manager::TEXTAREA,
+                'default'     => '',
+                'placeholder' => esc_html__( 'e.g. Bank Chambers, 25 Crossgate, Otley, West Yorkshire, LS21 1BE', 'dataphiles' ),
+                'rows'        => 3,
                 'dynamic'     => [
                     'active' => true,
                 ],
-                'description' => esc_html__( 'Optional: Add a link to your company name.', 'dataphiles' ),
             ]
         );
 
@@ -128,8 +114,8 @@ class Copyright_Widget extends Widget_Base {
                 'label'       => esc_html__( 'Text Before', 'dataphiles' ),
                 'type'        => Controls_Manager::WYSIWYG,
                 'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear before the copyright', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline before the copyright symbol. You can include links.', 'dataphiles' ),
+                'placeholder' => esc_html__( 'Optional text to appear before the registration info', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline before the registration info. You can include links.', 'dataphiles' ),
             ]
         );
 
@@ -139,8 +125,8 @@ class Copyright_Widget extends Widget_Base {
                 'label'       => esc_html__( 'Text After', 'dataphiles' ),
                 'type'        => Controls_Manager::WYSIWYG,
                 'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear after the copyright', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline after "All rights reserved." You can include links.', 'dataphiles' ),
+                'placeholder' => esc_html__( 'Optional text to appear after the registration info', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline after the registration info. You can include links.', 'dataphiles' ),
             ]
         );
 
@@ -165,7 +151,7 @@ class Copyright_Widget extends Widget_Base {
                 ],
                 'default'   => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .dataphiles-copyright' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .dataphiles-company-registration' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -185,7 +171,7 @@ class Copyright_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'typography',
-                'selector' => '{{WRAPPER}} .dataphiles-copyright',
+                'selector' => '{{WRAPPER}} .dataphiles-company-registration',
                 'global'   => [
                     'default' => Global_Typography::TYPOGRAPHY_TEXT,
                 ],
@@ -201,7 +187,7 @@ class Copyright_Widget extends Widget_Base {
                     'default' => Global_Colors::COLOR_TEXT,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .dataphiles-copyright' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .dataphiles-company-registration' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -224,7 +210,7 @@ class Copyright_Widget extends Widget_Base {
                     'default' => Global_Colors::COLOR_ACCENT,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .dataphiles-copyright a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .dataphiles-company-registration a' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -235,31 +221,12 @@ class Copyright_Widget extends Widget_Base {
                 'label'     => esc_html__( 'Link Hover Color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .dataphiles-copyright a:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .dataphiles-company-registration a:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
-    }
-
-    /**
-     * Calculate the copyright year display.
-     *
-     * @param int $start_year The copyright start year.
-     * @return string
-     */
-    private function get_copyright_year( $start_year ) {
-        $current_year = (int) gmdate( 'Y' );
-        $start_year   = (int) $start_year;
-
-        // If start year is current year or in the future, return just the current year
-        if ( $start_year >= $current_year ) {
-            return (string) $current_year;
-        }
-
-        // If start year is in the past, return range format
-        return $start_year . '-' . $current_year;
     }
 
     /**
@@ -293,47 +260,52 @@ class Copyright_Widget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        $start_year   = ! empty( $settings['start_year'] ) ? $settings['start_year'] : gmdate( 'Y' );
-        $company_name = ! empty( $settings['company_name'] ) ? $settings['company_name'] : '';
-        $company_url  = ! empty( $settings['company_url']['url'] ) ? $settings['company_url']['url'] : '';
-        $text_before  = ! empty( $settings['text_before'] ) ? $this->make_inline( $settings['text_before'] ) : '';
-        $text_after   = ! empty( $settings['text_after'] ) ? $this->make_inline( $settings['text_after'] ) : '';
-
-        $year_display = $this->get_copyright_year( $start_year );
-
-        // Build company name output
-        $company_output = esc_html( $company_name );
-        if ( ! empty( $company_url ) ) {
-            $target = ! empty( $settings['company_url']['is_external'] ) ? ' target="_blank"' : '';
-            $nofollow = ! empty( $settings['company_url']['nofollow'] ) ? ' rel="nofollow"' : '';
-            $company_output = sprintf(
-                '<a href="%s"%s%s>%s</a>',
-                esc_url( $company_url ),
-                $target,
-                $nofollow,
-                esc_html( $company_name )
-            );
-        }
+        $registered_number = ! empty( $settings['registered_number'] ) ? $settings['registered_number'] : '';
+        $registered_office = ! empty( $settings['registered_office'] ) ? $settings['registered_office'] : '';
+        $text_before       = ! empty( $settings['text_before'] ) ? $this->make_inline( $settings['text_before'] ) : '';
+        $text_after        = ! empty( $settings['text_after'] ) ? $this->make_inline( $settings['text_after'] ) : '';
 
         // Build before text output
         $before_output = '';
         if ( ! empty( $text_before ) ) {
-            $before_output = '<span class="dataphiles-copyright-before">' . wp_kses_post( $text_before ) . '</span> ';
+            $before_output = '<span class="dataphiles-registration-before">' . wp_kses_post( $text_before ) . '</span> ';
         }
 
         // Build after text output
         $after_output = '';
         if ( ! empty( $text_after ) ) {
-            $after_output = ' <span class="dataphiles-copyright-after">' . wp_kses_post( $text_after ) . '</span>';
+            $after_output = ' <span class="dataphiles-registration-after">' . wp_kses_post( $text_after ) . '</span>';
         }
 
-        // Output the copyright text
+        // Build main content
+        $parts = [];
+
+        if ( ! empty( $registered_number ) ) {
+            $parts[] = sprintf(
+                '%s %s',
+                esc_html__( 'Registered number:', 'dataphiles' ),
+                esc_html( $registered_number )
+            );
+        }
+
+        if ( ! empty( $registered_office ) ) {
+            $parts[] = sprintf(
+                '%s %s',
+                esc_html__( 'Registered office:', 'dataphiles' ),
+                esc_html( $registered_office )
+            );
+        }
+
+        $main_content = implode( '. ', $parts );
+        if ( ! empty( $main_content ) ) {
+            $main_content .= '.';
+        }
+
+        // Output the registration text
         printf(
-            '<div class="dataphiles-copyright">%s&copy; %s %s. %s%s</div>',
+            '<div class="dataphiles-company-registration">%s%s%s</div>',
             $before_output, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped with wp_kses_post above
-            esc_html( $year_display ),
-            $company_output, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above
-            esc_html__( 'All rights reserved.', 'dataphiles' ),
+            $main_content, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above
             $after_output // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped with wp_kses_post above
         );
     }
@@ -344,27 +316,8 @@ class Copyright_Widget extends Widget_Base {
     protected function content_template() {
         ?>
         <#
-        var currentYear = new Date().getFullYear();
-        var startYear = settings.start_year || currentYear;
-        var yearDisplay = '';
-
-        if ( parseInt( startYear ) >= currentYear ) {
-            yearDisplay = currentYear.toString();
-        } else {
-            yearDisplay = startYear + '-' + currentYear;
-        }
-
-        var companyName = settings.company_name || '';
-        var companyUrl = settings.company_url.url || '';
-        var companyOutput = '';
-
-        if ( companyUrl ) {
-            var target = settings.company_url.is_external ? ' target="_blank"' : '';
-            var nofollow = settings.company_url.nofollow ? ' rel="nofollow"' : '';
-            companyOutput = '<a href="' + companyUrl + '"' + target + nofollow + '>' + companyName + '</a>';
-        } else {
-            companyOutput = companyName;
-        }
+        var registeredNumber = settings.registered_number || '';
+        var registeredOffice = settings.registered_office || '';
 
         // Helper function to strip block-level tags for inline display
         function makeInline( content ) {
@@ -383,11 +336,24 @@ class Copyright_Widget extends Widget_Base {
         var textBefore = settings.text_before ? makeInline( settings.text_before ) : '';
         var textAfter = settings.text_after ? makeInline( settings.text_after ) : '';
 
-        var beforeOutput = textBefore ? '<span class="dataphiles-copyright-before">' + textBefore + '</span> ' : '';
-        var afterOutput = textAfter ? ' <span class="dataphiles-copyright-after">' + textAfter + '</span>' : '';
+        var beforeOutput = textBefore ? '<span class="dataphiles-registration-before">' + textBefore + '</span> ' : '';
+        var afterOutput = textAfter ? ' <span class="dataphiles-registration-after">' + textAfter + '</span>' : '';
+
+        var parts = [];
+        if ( registeredNumber ) {
+            parts.push( '<?php echo esc_js( __( 'Registered number:', 'dataphiles' ) ); ?> ' + registeredNumber );
+        }
+        if ( registeredOffice ) {
+            parts.push( '<?php echo esc_js( __( 'Registered office:', 'dataphiles' ) ); ?> ' + registeredOffice );
+        }
+
+        var mainContent = parts.join( '. ' );
+        if ( mainContent ) {
+            mainContent += '.';
+        }
         #>
-        <div class="dataphiles-copyright">
-            {{{ beforeOutput }}}&copy; {{{ yearDisplay }}} {{{ companyOutput }}}. <?php echo esc_html__( 'All rights reserved.', 'dataphiles' ); ?>{{{ afterOutput }}}
+        <div class="dataphiles-company-registration">
+            {{{ beforeOutput }}}{{{ mainContent }}}{{{ afterOutput }}}
         </div>
         <?php
     }
