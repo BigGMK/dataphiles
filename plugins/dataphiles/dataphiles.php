@@ -183,7 +183,10 @@ final class Dataphiles_Plugin {
      */
     public function register_widgets( $widgets_manager ) {
         require_once DATAPHILES_PLUGIN_DIR . 'includes/widgets/class-copyright-widget.php';
+        require_once DATAPHILES_PLUGIN_DIR . 'includes/widgets/class-company-registration-widget.php';
+
         $widgets_manager->register( new \Dataphiles\Widgets\Copyright_Widget() );
+        $widgets_manager->register( new \Dataphiles\Widgets\Company_Registration_Widget() );
     }
 }
 
