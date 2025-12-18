@@ -214,9 +214,12 @@
 			// Stagger the start positions vertically around baseline
 			const startY = (index / total) * 8 - 4;
 
-			// Gentle random drift for natural floating movement
-			const driftMid = (Math.random() - 0.5) * 10;
-			const driftEnd = driftMid + (Math.random() - 0.5) * 12;
+			// Generate multiple random drift points for direction changes
+			const drift1 = (Math.random() - 0.5) * 12;
+			const drift2 = (Math.random() - 0.5) * 14;
+			const drift3 = (Math.random() - 0.5) * 12;
+			const drift4 = (Math.random() - 0.5) * 16;
+			const drift5 = (Math.random() - 0.5) * 10;
 
 			// Apply styles - soft glowing circle
 			spark.style.cssText = `
@@ -247,7 +250,7 @@
 					}, duration * 0.6);
 				}
 
-				// Animate using Web Animations API - smooth floating rise
+				// Animate using Web Animations API - wandering floating rise
 				const animation = spark.animate([
 					{
 						opacity: 0,
@@ -255,27 +258,32 @@
 					},
 					{
 						opacity: 0.9,
-						transform: `translateY(-8px) translateX(${driftMid * 0.2}px) scale(1)`,
+						transform: `translateY(-8px) translateX(${drift1}px) scale(1)`,
 						offset: 0.1
 					},
 					{
 						opacity: 1,
-						transform: `translateY(-20px) translateX(${driftMid * 0.5}px) scale(1)`,
+						transform: `translateY(-18px) translateX(${drift2}px) scale(1)`,
 						offset: 0.25
 					},
 					{
-						opacity: 0.9,
-						transform: `translateY(-35px) translateX(${driftMid * 0.8}px) scale(0.9)`,
-						offset: 0.5
+						opacity: 1,
+						transform: `translateY(-28px) translateX(${drift3}px) scale(0.95)`,
+						offset: 0.4
 					},
 					{
-						opacity: 0.5,
-						transform: `translateY(-50px) translateX(${driftMid}px) scale(0.7)`,
-						offset: 0.75
+						opacity: 0.8,
+						transform: `translateY(-40px) translateX(${drift4}px) scale(0.85)`,
+						offset: 0.6
+					},
+					{
+						opacity: 0.4,
+						transform: `translateY(-52px) translateX(${drift5}px) scale(0.65)`,
+						offset: 0.8
 					},
 					{
 						opacity: 0,
-						transform: `translateY(-60px) translateX(${driftEnd}px) scale(0.4)`
+						transform: `translateY(-60px) translateX(${drift5 + (Math.random() - 0.5) * 8}px) scale(0.4)`
 					}
 				], {
 					duration: duration,
