@@ -83,7 +83,7 @@ class Company_Registration_Widget extends Widget_Base {
         $this->add_control(
             'registered_number',
             [
-                'label'       => esc_html__( 'Registered Number', 'dataphiles' ),
+                'label'       => esc_html__( 'Registered number', 'dataphiles' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '',
                 'placeholder' => esc_html__( 'e.g. 04599161', 'dataphiles' ),
@@ -97,7 +97,7 @@ class Company_Registration_Widget extends Widget_Base {
         $this->add_control(
             'registered_office',
             [
-                'label'       => esc_html__( 'Registered Office', 'dataphiles' ),
+                'label'       => esc_html__( 'Registered office', 'dataphiles' ),
                 'type'        => Controls_Manager::TEXTAREA,
                 'default'     => '',
                 'placeholder' => esc_html__( 'e.g. Bank Chambers, 25 Crossgate, Otley, West Yorkshire, LS21 1BE', 'dataphiles' ),
@@ -105,28 +105,6 @@ class Company_Registration_Widget extends Widget_Base {
                 'dynamic'     => [
                     'active' => true,
                 ],
-            ]
-        );
-
-        $this->add_control(
-            'text_before',
-            [
-                'label'       => esc_html__( 'Text Before', 'dataphiles' ),
-                'type'        => Controls_Manager::WYSIWYG,
-                'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear before the registration info', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline before the registration info. You can include links.', 'dataphiles' ),
-            ]
-        );
-
-        $this->add_control(
-            'text_after',
-            [
-                'label'       => esc_html__( 'Text After', 'dataphiles' ),
-                'type'        => Controls_Manager::WYSIWYG,
-                'default'     => '',
-                'placeholder' => esc_html__( 'Optional text to appear after the registration info', 'dataphiles' ),
-                'description' => esc_html__( 'This text will appear inline after the registration info. You can include links.', 'dataphiles' ),
             ]
         );
 
@@ -158,6 +136,39 @@ class Company_Registration_Widget extends Widget_Base {
 
         $this->end_controls_section();
 
+        // Additional Text Section (collapsed by default)
+        $this->start_controls_section(
+            'section_additional_text',
+            [
+                'label' => esc_html__( 'Additional text', 'dataphiles' ),
+                'tab'   => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'text_before',
+            [
+                'label'       => esc_html__( 'Text before', 'dataphiles' ),
+                'type'        => Controls_Manager::WYSIWYG,
+                'default'     => '',
+                'placeholder' => esc_html__( 'Optional text to appear before the registration info', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline before the registration info. You can include links.', 'dataphiles' ),
+            ]
+        );
+
+        $this->add_control(
+            'text_after',
+            [
+                'label'       => esc_html__( 'Text after', 'dataphiles' ),
+                'type'        => Controls_Manager::WYSIWYG,
+                'default'     => '',
+                'placeholder' => esc_html__( 'Optional text to appear after the registration info', 'dataphiles' ),
+                'description' => esc_html__( 'This text will appear inline after the registration info. You can include links.', 'dataphiles' ),
+            ]
+        );
+
+        $this->end_controls_section();
+
         // Style Section
         $this->start_controls_section(
             'section_style',
@@ -181,7 +192,7 @@ class Company_Registration_Widget extends Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Text color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'global'    => [
                     'default' => Global_Colors::COLOR_TEXT,
@@ -204,7 +215,7 @@ class Company_Registration_Widget extends Widget_Base {
         $this->add_control(
             'link_color',
             [
-                'label'     => esc_html__( 'Link Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Link color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'global'    => [
                     'default' => Global_Colors::COLOR_ACCENT,
@@ -218,7 +229,7 @@ class Company_Registration_Widget extends Widget_Base {
         $this->add_control(
             'link_hover_color',
             [
-                'label'     => esc_html__( 'Link Hover Color', 'dataphiles' ),
+                'label'     => esc_html__( 'Link hover color', 'dataphiles' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .dataphiles-company-registration a:hover' => 'color: {{VALUE}};',
