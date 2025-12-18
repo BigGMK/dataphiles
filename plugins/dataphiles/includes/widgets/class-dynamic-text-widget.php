@@ -579,7 +579,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .dataphiles-dynamic-text__impact' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__entry' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -921,7 +921,9 @@ class Dynamic_Text_Widget extends Widget_Base {
 		?>
 		<div class="dataphiles-dynamic-text"
 			 id="dataphiles-dynamic-text-<?php echo esc_attr( $widget_id ); ?>"
-			 data-settings="<?php echo esc_attr( wp_json_encode( $animation_settings ) ); ?>">
+			 data-settings="<?php echo esc_attr( wp_json_encode( $animation_settings ) ); ?>"
+			 data-enter-direction="<?php echo esc_attr( $settings['enter_direction'] ); ?>"
+			 style="--drop-distance: <?php echo absint( $settings['drop_distance']['size'] ); ?>px;">
 
 			<div class="dataphiles-dynamic-text__entry">
 				<div class="dataphiles-dynamic-text__impact-wrapper">
