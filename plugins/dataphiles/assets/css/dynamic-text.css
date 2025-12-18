@@ -83,11 +83,11 @@
 	transition: none;
 }
 
-/* Editor preview - always visible */
-.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__impact--visible,
-.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__subline--visible {
-	opacity: 1;
-	transform: translateY(0);
+/* Editor preview - always visible (high specificity to override all animation states) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__impact--visible,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__subline--visible {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
 }
 
 /* Editor preview note */

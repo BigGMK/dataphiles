@@ -398,20 +398,9 @@
 		initWidgets();
 	}
 
-	// Re-initialize when Elementor frontend loads (for live preview)
-	if (typeof window.elementorFrontend !== 'undefined') {
-		window.elementorFrontend.hooks.addAction('frontend/element_ready/dataphiles-dynamic-text.default', function($scope) {
-			const widget = $scope[0].querySelector('.dataphiles-dynamic-text[data-settings]');
-			if (widget && !widget.dataset.initialized) {
-				widget.dataset.initialized = 'true';
-				new DynamicTextWidget(widget);
-			}
-		});
-	}
-
-	// Also listen for Elementor init
-	window.addEventListener('elementor/frontend/init', function() {
-		if (typeof window.elementorFrontend !== 'undefined') {
+	// Helper function to register Elementor widget handler
+	function registerElementorHandler() {
+		if (typeof window.elementorFrontend !== 'undefined' && window.elementorFrontend.hooks) {
 			window.elementorFrontend.hooks.addAction('frontend/element_ready/dataphiles-dynamic-text.default', function($scope) {
 				const widget = $scope[0].querySelector('.dataphiles-dynamic-text[data-settings]');
 				if (widget && !widget.dataset.initialized) {
@@ -419,7 +408,17 @@
 					new DynamicTextWidget(widget);
 				}
 			});
+			return true;
 		}
-	});
+		return false;
+	}
+
+	// Try to register immediately if Elementor is ready
+	if (!registerElementorHandler()) {
+		// Listen for Elementor init event
+		window.addEventListener('elementor/frontend/init', function() {
+			registerElementorHandler();
+		});
+	}
 
 })();
