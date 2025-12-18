@@ -206,73 +206,88 @@
 				spark.classList.add('dataphiles-dynamic-text__spark--trail');
 			}
 
-			// Random positioning within container
+			// Random positioning within container - closer to the text
 			const startX = side === 'left'
-				? Math.random() * 20 + 5  // 5-25px from right edge
-				: Math.random() * 20 + 5; // 5-25px from left edge
+				? Math.random() * 15 + 3  // 3-18px from right edge
+				: Math.random() * 15 + 3; // 3-18px from left edge
 
-			// Stagger the start positions vertically
-			const startY = (index / total) * 10;
+			// Stagger the start positions vertically around baseline
+			const startY = (index / total) * 8 - 4;
 
-			// Random drift for natural movement
-			const driftMid = (Math.random() - 0.5) * 15;
-			const driftEnd = driftMid + (Math.random() - 0.5) * 20;
+			// Generate multiple random drift points for direction changes
+			const drift1 = (Math.random() - 0.5) * 12;
+			const drift2 = (Math.random() - 0.5) * 14;
+			const drift3 = (Math.random() - 0.5) * 12;
+			const drift4 = (Math.random() - 0.5) * 16;
+			const drift5 = (Math.random() - 0.5) * 10;
 
-			// Apply styles
+			// Apply styles - soft glowing circle
 			spark.style.cssText = `
 				width: ${size}px;
 				height: ${size}px;
-				background: ${color};
+				background: radial-gradient(circle, ${color} 0%, ${color}88 40%, transparent 70%);
 				color: ${color};
 				left: ${side === 'left' ? 'auto' : startX + 'px'};
 				right: ${side === 'left' ? startX + 'px' : 'auto'};
 				bottom: ${startY}px;
-				box-shadow: 0 0 ${size}px ${color}, 0 0 ${size * 2}px ${color};
+				box-shadow: 0 0 ${size * 0.5}px ${color}, 0 0 ${size}px ${color}66;
 			`;
-
-			// Set custom properties for animation
-			spark.style.setProperty('--spark-drift', driftMid + 'px');
-			spark.style.setProperty('--spark-drift-end', driftEnd + 'px');
 
 			container.appendChild(spark);
 
 			// Stagger the animation start
-			const delay = (index / total) * (duration * 0.2);
+			const delay = (index / total) * (duration * 0.15);
 
 			setTimeout(() => {
-				// Add trail animation class
+				// Show trail after a brief moment
 				if (showTrail) {
-					spark.classList.add('is-animating');
+					setTimeout(() => {
+						spark.classList.add('is-animating');
+					}, 50);
+					// Fade trail out before spark ends
+					setTimeout(() => {
+						spark.classList.remove('is-animating');
+					}, duration * 0.6);
 				}
 
-				// Animate using Web Animations API for smooth easing
+				// Animate using Web Animations API - wandering floating rise
 				const animation = spark.animate([
 					{
 						opacity: 0,
-						transform: 'translateY(0) translateX(0) scale(0.5)'
+						transform: 'translateY(0) translateX(0) scale(0.3)'
+					},
+					{
+						opacity: 0.9,
+						transform: `translateY(-8px) translateX(${drift1}px) scale(1)`,
+						offset: 0.1
 					},
 					{
 						opacity: 1,
-						transform: `translateY(-15px) translateX(${driftMid * 0.3}px) scale(1.2)`,
-						offset: 0.15
+						transform: `translateY(-18px) translateX(${drift2}px) scale(1)`,
+						offset: 0.25
 					},
 					{
 						opacity: 1,
-						transform: `translateY(-30px) translateX(${driftMid * 0.6}px) scale(1)`,
-						offset: 0.35
+						transform: `translateY(-28px) translateX(${drift3}px) scale(0.95)`,
+						offset: 0.4
 					},
 					{
-						opacity: 0.7,
-						transform: `translateY(-50px) translateX(${driftMid}px) scale(0.8)`,
+						opacity: 0.8,
+						transform: `translateY(-40px) translateX(${drift4}px) scale(0.85)`,
 						offset: 0.6
 					},
 					{
+						opacity: 0.4,
+						transform: `translateY(-52px) translateX(${drift5}px) scale(0.65)`,
+						offset: 0.8
+					},
+					{
 						opacity: 0,
-						transform: `translateY(-70px) translateX(${driftEnd}px) scale(0.3)`
+						transform: `translateY(-60px) translateX(${drift5 + (Math.random() - 0.5) * 8}px) scale(0.4)`
 					}
 				], {
 					duration: duration,
-					easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', // Slow start, accelerate at end
+					easing: 'cubic-bezier(0.4, 0, 0.2, 1)', // Smooth ease-out
 					fill: 'forwards'
 				});
 

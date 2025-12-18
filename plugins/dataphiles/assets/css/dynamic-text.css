@@ -21,27 +21,33 @@
 .dataphiles-dynamic-text__impact-wrapper {
 	position: relative;
 	display: inline-flex;
-	align-items: flex-end;
-	justify-content: center;
-	width: 100%;
+	/* Width controlled by text-align on parent */
 }
 
-.dataphiles-dynamic-text__impact,
+.dataphiles-dynamic-text__impact {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	transition-property: opacity, transform;
+	transition-timing-function: ease-out;
+	visibility: visible;
+}
+
 .dataphiles-dynamic-text__subline {
 	margin: 0;
 	padding: 0;
 	opacity: 0;
 	transition-property: opacity, transform;
 	transition-timing-function: ease-out;
-	/* Prevent height collapse during animation */
 	visibility: visible;
+	width: 100%;
 }
 
-/* Image inside impact element */
+/* Image inside impact element - use inline-block for text-align to work */
 .dataphiles-dynamic-text__impact img {
-	display: block;
-	margin: 0 auto;
+	display: inline-block;
 	height: auto;
+	max-width: 100%;
 }
 
 /* Enter from top (drop down) - starts above */
@@ -122,7 +128,7 @@
 	margin-left: 5px;
 }
 
-/* Individual spark particle */
+/* Individual spark particle - soft glowing circle */
 .dataphiles-dynamic-text__spark {
 	position: absolute;
 	bottom: 0;
@@ -130,35 +136,37 @@
 	opacity: 0;
 	pointer-events: none;
 	will-change: transform, opacity;
+	/* Soft glow effect */
+	filter: blur(1px);
 }
 
-/* Spark with glow effect */
+/* Outer glow halo */
 .dataphiles-dynamic-text__spark::before {
 	content: '';
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 200%;
-	height: 200%;
+	width: 250%;
+	height: 250%;
 	border-radius: 50%;
-	background: inherit;
-	filter: blur(4px);
-	opacity: 0.6;
+	background: radial-gradient(circle, currentColor 0%, transparent 70%);
+	opacity: 0.4;
 }
 
-/* Spark trail effect */
+/* Trail effect - soft fading line behind the spark */
 .dataphiles-dynamic-text__spark--trail::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
+	bottom: 100%;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 2px;
+	width: 3px;
 	height: 0;
-	background: linear-gradient(to top, currentColor, transparent);
-	opacity: 0.5;
-	transition: height 0.3s ease-out;
+	border-radius: 2px;
+	background: linear-gradient(to bottom, currentColor 0%, transparent 100%);
+	opacity: 0.6;
+	transition: height 0.2s ease-out, opacity 0.4s ease-out;
 }
 
 .dataphiles-dynamic-text__spark--trail.is-animating::after {
