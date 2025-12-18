@@ -13,6 +13,10 @@
 	/**
 	 * DynamicTextWidget class
 	 */
+	// Debug logging helper
+	const DEBUG = true;
+	const log = (...args) => DEBUG && console.log('[DynamicText]', ...args);
+
 	class DynamicTextWidget {
 		constructor(element) {
 			this.element = element;
@@ -21,6 +25,9 @@
 			this.isPaused = false;
 			this.timeoutIds = [];
 
+			log('Constructor called');
+			log('Settings:', this.settings);
+
 			// Get DOM elements
 			this.entryEl = element.querySelector('.dataphiles-dynamic-text__entry');
 			this.impactEl = element.querySelector('.dataphiles-dynamic-text__impact');
@@ -28,15 +35,25 @@
 			this.sparksLeftEl = element.querySelector('.dataphiles-dynamic-text__sparks--left');
 			this.sparksRightEl = element.querySelector('.dataphiles-dynamic-text__sparks--right');
 
+			log('DOM Elements found:', {
+				entry: !!this.entryEl,
+				impact: !!this.impactEl,
+				subline: !!this.sublineEl,
+				entries: this.settings.entries?.length || 0
+			});
+
 			if (!this.impactEl || !this.sublineEl || !this.settings.entries || this.settings.entries.length === 0) {
+				log('ERROR: Missing required elements or entries, aborting');
 				return;
 			}
 
 			// Set CSS custom property for drop distance
 			element.style.setProperty('--drop-distance', this.settings.dropDistance + 'px');
+			log('Drop distance set:', this.settings.dropDistance + 'px');
 
 			// Set data attribute for enter direction (used by CSS)
 			element.dataset.enterDirection = this.settings.enterDirection || 'down';
+			log('Enter direction:', element.dataset.enterDirection);
 
 			// Initialize
 			this.init();
@@ -116,18 +133,26 @@
 		}
 
 		startCycle() {
+			log('startCycle() called');
 			// Show the first entry
 			this.showEntry();
 		}
 
 		showEntry() {
 			const entry = this.settings.entries[this.currentIndex];
+			const isImage = entry.contentType === 'image' && entry.imageUrl;
+
+			log('showEntry() - Index:', this.currentIndex);
+			log('Entry data:', entry);
+			log('Is image/SVG:', isImage);
 
 			// Update content based on type
-			if (entry.contentType === 'image' && entry.imageUrl) {
+			if (isImage) {
 				this.impactEl.innerHTML = '<img src="' + entry.imageUrl + '" alt="' + (entry.imageAlt || '') + '" />';
+				log('Set image content:', entry.imageUrl);
 			} else {
 				this.impactEl.textContent = entry.impact || '';
+				log('Set text content:', entry.impact);
 			}
 			this.sublineEl.textContent = entry.subline;
 
@@ -143,16 +168,25 @@
 			this.impactEl.style.transitionDuration = this.settings.impactEnterDuration + 'ms';
 			this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
 
-			// Explicitly set initial transform position (bypass CSS for reliability)
+			// Set initial state based on content type
 			const dropDist = this.settings.dropDistance || 50;
-			if (enterDir === 'down') {
-				// Drop down: start ABOVE (negative Y), animate to center
-				this.impactEl.style.transform = `translateY(-${dropDist}px)`;
+
+			if (isImage) {
+				// Images/SVGs: fade only, no transform animation
+				this.impactEl.style.transform = 'translateY(0)';
+				log('Image mode: fade only, no transform');
 			} else {
-				// Rise up: start BELOW (positive Y), animate to center
-				this.impactEl.style.transform = `translateY(${dropDist}px)`;
+				// Text: use transform animation
+				if (enterDir === 'down') {
+					this.impactEl.style.transform = `translateY(-${dropDist}px)`;
+					log('Text mode: drop down, initial transform:', `translateY(-${dropDist}px)`);
+				} else {
+					this.impactEl.style.transform = `translateY(${dropDist}px)`;
+					log('Text mode: rise up, initial transform:', `translateY(${dropDist}px)`);
+				}
 			}
 			this.impactEl.style.opacity = '0';
+			log('Initial state set - opacity: 0, transform:', this.impactEl.style.transform);
 
 			// Force reflow to ensure initial position is painted
 			void this.impactEl.offsetHeight;
@@ -160,22 +194,18 @@
 			// Use double requestAnimationFrame for reliable paint timing
 			requestAnimationFrame(() => {
 				requestAnimationFrame(() => {
-					// Step 1: Impact text enters - animate to center position
+					// Impact enters - animate to visible
+					log('RAF callback - animating to visible');
 					this.impactEl.style.transform = 'translateY(0)';
 					this.impactEl.style.opacity = '1';
 					this.impactEl.classList.add('is-visible');
+					log('Animation started - transform: translateY(0), opacity: 1');
 				});
 			});
 
-			// Trigger sparks when impact text appears
-			if (this.settings.sparksEnabled) {
-				this.addTimeout(() => {
-					this.triggerSparks();
-				}, this.settings.impactEnterDuration * 0.3); // Sparks appear partway through animation
-			}
-
 			// Step 2: After delay, subline fades in
 			this.addTimeout(() => {
+				log('Subline entering');
 				this.sublineEl.classList.add('is-visible');
 			}, this.settings.impactEnterDuration + this.settings.sublineDelay);
 
@@ -187,7 +217,10 @@
 
 			const totalEnterTime = this.settings.impactEnterDuration + this.settings.sublineDelay + this.settings.sublineEnterDuration;
 
+			log('Timing - enter:', totalEnterTime, 'ms, display:', displayDuration, 'ms');
+
 			this.addTimeout(() => {
+				log('Display complete, starting exit');
 				this.exitEntry();
 			}, totalEnterTime + displayDuration);
 		}
@@ -317,16 +350,33 @@
 		}
 
 		exitEntry() {
-			// Set exit transition durations (separate for impact and subline)
+			const entry = this.settings.entries[this.currentIndex];
+			const isImage = entry.contentType === 'image' && entry.imageUrl;
+
+			log('exitEntry() - Index:', this.currentIndex, 'isImage:', isImage);
+
+			// Set exit transition durations
 			this.impactEl.style.transitionDuration = this.settings.impactExitDuration + 'ms';
 			this.sublineEl.style.transitionDuration = this.settings.sublineExitDuration + 'ms';
 
 			// Determine exit class based on exit direction
 			const exitClass = this.settings.exitDirection === 'up' ? 'is-exiting-up' : 'is-exiting-down';
+			log('Exit direction:', this.settings.exitDirection, 'Exit class:', exitClass);
 
-			// Both elements exit together
-			this.impactEl.classList.remove('is-visible');
-			this.impactEl.classList.add(exitClass);
+			// Images/SVGs: fade only exit
+			if (isImage) {
+				log('Image exit: fade only');
+				this.impactEl.classList.remove('is-visible');
+				this.impactEl.style.opacity = '0';
+				// No transform change for images
+			} else {
+				log('Text exit: using transform animation');
+				// Text: use transform exit animation
+				this.impactEl.classList.remove('is-visible');
+				this.impactEl.classList.add(exitClass);
+			}
+
+			// Subline always uses transform animation
 			this.sublineEl.classList.remove('is-visible');
 			this.sublineEl.classList.add(exitClass);
 
@@ -334,6 +384,8 @@
 			const maxExitDuration = Math.max(this.settings.impactExitDuration, this.settings.sublineExitDuration);
 
 			this.addTimeout(() => {
+				// Clean up exit classes
+				this.impactEl.classList.remove('is-exiting-down', 'is-exiting-up');
 				// Additional delay between entries
 				this.addTimeout(() => {
 					this.nextEntry();
