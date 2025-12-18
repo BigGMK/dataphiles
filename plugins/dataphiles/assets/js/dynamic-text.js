@@ -136,19 +136,33 @@
 			this.sublineEl.classList.remove('is-visible', 'is-exiting-down', 'is-exiting-up');
 
 			// Update enter direction data attribute
-			this.element.dataset.enterDirection = this.settings.enterDirection || 'down';
+			const enterDir = this.settings.enterDirection || 'down';
+			this.element.dataset.enterDirection = enterDir;
 
 			// Set transition durations for enter
 			this.impactEl.style.transitionDuration = this.settings.impactEnterDuration + 'ms';
 			this.sublineEl.style.transitionDuration = this.settings.sublineEnterDuration + 'ms';
 
-			// Force reflow on parent to ensure CSS transforms are applied
-			void this.entryEl.offsetHeight;
+			// Explicitly set initial transform position (bypass CSS for reliability)
+			const dropDist = this.settings.dropDistance || 50;
+			if (enterDir === 'down') {
+				// Drop down: start ABOVE (negative Y), animate to center
+				this.impactEl.style.transform = `translateY(-${dropDist}px)`;
+			} else {
+				// Rise up: start BELOW (positive Y), animate to center
+				this.impactEl.style.transform = `translateY(${dropDist}px)`;
+			}
+			this.impactEl.style.opacity = '0';
+
+			// Force reflow to ensure initial position is painted
+			void this.impactEl.offsetHeight;
 
 			// Use double requestAnimationFrame for reliable paint timing
 			requestAnimationFrame(() => {
 				requestAnimationFrame(() => {
-					// Step 1: Impact text enters (drops in or rises up, depending on direction)
+					// Step 1: Impact text enters - animate to center position
+					this.impactEl.style.transform = 'translateY(0)';
+					this.impactEl.style.opacity = '1';
 					this.impactEl.classList.add('is-visible');
 				});
 			});
