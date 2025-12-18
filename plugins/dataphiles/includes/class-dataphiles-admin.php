@@ -177,6 +177,10 @@ class Dataphiles_Admin {
                         <strong><?php esc_html_e( 'Copyright Widget', 'dataphiles' ); ?></strong> -
                         <?php esc_html_e( 'Display dynamic copyright text with customizable date range and company name.', 'dataphiles' ); ?>
                     </li>
+                    <li>
+                        <strong><?php esc_html_e( 'Company Registration Widget', 'dataphiles' ); ?></strong> -
+                        <?php esc_html_e( 'Display company registered number and registered office address.', 'dataphiles' ); ?>
+                    </li>
                 </ul>
             </div>
         </div>
