@@ -206,6 +206,15 @@ final class Dataphiles_Plugin {
             DATAPHILES_VERSION,
             true
         );
+
+        // Pass debug setting to JavaScript
+        wp_localize_script(
+            'dataphiles-dynamic-text',
+            'dataphilesSettings',
+            [
+                'debug' => Dataphiles_Admin::get_setting( 'dynamic_text_debug', false ),
+            ]
+        );
     }
 
     /**
