@@ -12,6 +12,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
@@ -68,7 +69,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return [ 'text', 'dynamic', 'animation', 'rotating', 'headline', 'impact', 'fade', 'drop' ];
+		return [ 'text', 'dynamic', 'animation', 'rotating', 'headline', 'impact', 'fade', 'drop', 'svg' ];
 	}
 
 	/**
@@ -113,15 +114,45 @@ class Dynamic_Text_Widget extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
+			'content_type',
+			[
+				'label'   => esc_html__( 'Impact Content Type', 'dataphiles' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => [
+					'text'  => esc_html__( 'Text', 'dataphiles' ),
+					'image' => esc_html__( 'Image/SVG', 'dataphiles' ),
+				],
+				'default' => 'text',
+			]
+		);
+
+		$repeater->add_control(
 			'impact_text',
 			[
 				'label'       => esc_html__( 'Impact Text', 'dataphiles' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'EVOLVE', 'dataphiles' ),
+				'default'     => esc_html__( 'Impact', 'dataphiles' ),
 				'placeholder' => esc_html__( 'Enter impact word', 'dataphiles' ),
 				'label_block' => true,
 				'dynamic'     => [
 					'active' => true,
+				],
+				'condition'   => [
+					'content_type' => 'text',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'impact_image',
+			[
+				'label'     => esc_html__( 'Impact Image/SVG', 'dataphiles' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => [
+					'url' => '',
+				],
+				'condition' => [
+					'content_type' => 'image',
 				],
 			]
 		);
@@ -131,12 +162,26 @@ class Dynamic_Text_Widget extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Subline Text', 'dataphiles' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( '...your clinical system', 'dataphiles' ),
+				'default'     => esc_html__( 'Subline', 'dataphiles' ),
 				'placeholder' => esc_html__( 'Enter subline text', 'dataphiles' ),
 				'label_block' => true,
 				'dynamic'     => [
 					'active' => true,
 				],
+			]
+		);
+
+		$repeater->add_control(
+			'custom_display_duration',
+			[
+				'label'       => esc_html__( 'Custom Display Duration (ms)', 'dataphiles' ),
+				'type'        => Controls_Manager::NUMBER,
+				'min'         => 0,
+				'max'         => 30000,
+				'step'        => 100,
+				'default'     => '',
+				'placeholder' => esc_html__( 'Use default', 'dataphiles' ),
+				'description' => esc_html__( 'Override the default display duration for this entry. Leave empty to use default.', 'dataphiles' ),
 			]
 		);
 
@@ -148,19 +193,12 @@ class Dynamic_Text_Widget extends Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'default'     => [
 					[
-						'impact_text'  => esc_html__( 'EVOLVE', 'dataphiles' ),
-						'subline_text' => esc_html__( '...your clinical system', 'dataphiles' ),
-					],
-					[
-						'impact_text'  => esc_html__( 'TRANSFORM', 'dataphiles' ),
-						'subline_text' => esc_html__( '...your workflow', 'dataphiles' ),
-					],
-					[
-						'impact_text'  => esc_html__( 'INNOVATE', 'dataphiles' ),
-						'subline_text' => esc_html__( '...your practice', 'dataphiles' ),
+						'content_type' => 'text',
+						'impact_text'  => esc_html__( 'Impact', 'dataphiles' ),
+						'subline_text' => esc_html__( 'Subline', 'dataphiles' ),
 					],
 				],
-				'title_field' => '{{{ impact_text }}}',
+				'title_field' => '<# if ( content_type === "image" ) { #><?php echo esc_html__( '[Image]', 'dataphiles' ); ?><# } else { #>{{{ impact_text }}}<# } #>',
 				'max_items'   => 10,
 			]
 		);
@@ -221,6 +259,28 @@ class Dynamic_Text_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
+			'heading_enter_animation',
+			[
+				'label' => esc_html__( 'Enter Animation', 'dataphiles' ),
+				'type'  => Controls_Manager::HEADING,
+			]
+		);
+
+		$this->add_control(
+			'enter_direction',
+			[
+				'label'       => esc_html__( 'Enter Direction', 'dataphiles' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => [
+					'down' => esc_html__( 'Drop Down', 'dataphiles' ),
+					'up'   => esc_html__( 'Rise Up', 'dataphiles' ),
+				],
+				'default'     => 'down',
+				'description' => esc_html__( 'Direction text enters from.', 'dataphiles' ),
+			]
+		);
+
+		$this->add_control(
 			'impact_enter_duration',
 			[
 				'label'   => esc_html__( 'Impact Enter Duration (ms)', 'dataphiles' ),
@@ -258,27 +318,93 @@ class Dynamic_Text_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
+			'heading_display',
+			[
+				'label'     => esc_html__( 'Display', 'dataphiles' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
 			'display_duration',
 			[
-				'label'       => esc_html__( 'Display Duration (ms)', 'dataphiles' ),
+				'label'       => esc_html__( 'Default Display Duration (ms)', 'dataphiles' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => 500,
 				'max'         => 10000,
 				'step'        => 100,
 				'default'     => 3000,
-				'description' => esc_html__( 'How long text stays visible before exiting.', 'dataphiles' ),
+				'description' => esc_html__( 'How long text stays visible before exiting. Can be overridden per entry.', 'dataphiles' ),
 			]
 		);
 
 		$this->add_control(
-			'exit_duration',
+			'heading_exit_animation',
 			[
-				'label'   => esc_html__( 'Exit Duration (ms)', 'dataphiles' ),
+				'label'     => esc_html__( 'Exit Animation', 'dataphiles' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'exit_direction',
+			[
+				'label'       => esc_html__( 'Exit Direction', 'dataphiles' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => [
+					'down' => esc_html__( 'Drop Down', 'dataphiles' ),
+					'up'   => esc_html__( 'Rise Up', 'dataphiles' ),
+				],
+				'default'     => 'down',
+				'description' => esc_html__( 'Direction text exits to.', 'dataphiles' ),
+			]
+		);
+
+		$this->add_control(
+			'impact_exit_duration',
+			[
+				'label'   => esc_html__( 'Impact Exit Duration (ms)', 'dataphiles' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 100,
 				'max'     => 3000,
 				'step'    => 50,
 				'default' => 500,
+			]
+		);
+
+		$this->add_control(
+			'subline_exit_duration',
+			[
+				'label'   => esc_html__( 'Subline Exit Duration (ms)', 'dataphiles' ),
+				'type'    => Controls_Manager::NUMBER,
+				'min'     => 100,
+				'max'     => 3000,
+				'step'    => 50,
+				'default' => 500,
+			]
+		);
+
+		$this->add_control(
+			'heading_cycle',
+			[
+				'label'     => esc_html__( 'Cycle Settings', 'dataphiles' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'delay_between_entries',
+			[
+				'label'       => esc_html__( 'Delay Between Entries (ms)', 'dataphiles' ),
+				'type'        => Controls_Manager::NUMBER,
+				'min'         => 0,
+				'max'         => 3000,
+				'step'        => 50,
+				'default'     => 200,
+				'description' => esc_html__( 'Delay after exit animation before next entry appears.', 'dataphiles' ),
 			]
 		);
 
@@ -299,7 +425,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 					'unit' => 'px',
 					'size' => 50,
 				],
-				'description' => esc_html__( 'Distance the text drops in from / out to.', 'dataphiles' ),
+				'description' => esc_html__( 'Distance the text moves during animation.', 'dataphiles' ),
 			]
 		);
 
@@ -328,6 +454,32 @@ class Dynamic_Text_Widget extends Widget_Base {
 			[
 				'label' => esc_html__( 'Impact Text', 'dataphiles' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'impact_alignment',
+			[
+				'label'     => esc_html__( 'Alignment', 'dataphiles' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'   => [
+						'title' => esc_html__( 'Left', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-center',
+					],
+					'right'  => [
+						'title' => esc_html__( 'Right', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-right',
+					],
+				],
+				'default'   => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 
@@ -370,12 +522,147 @@ class Dynamic_Text_Widget extends Widget_Base {
 
 		$this->end_controls_section();
 
+		// Impact Image Style.
+		$this->start_controls_section(
+			'section_impact_image_style',
+			[
+				'label' => esc_html__( 'Impact Image/SVG', 'dataphiles' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'impact_image_width',
+			[
+				'label'      => esc_html__( 'Width', 'dataphiles' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'vw' ],
+				'range'      => [
+					'px' => [
+						'min' => 10,
+						'max' => 1000,
+					],
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'impact_image_max_width',
+			[
+				'label'      => esc_html__( 'Max Width', 'dataphiles' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'vw' ],
+				'range'      => [
+					'px' => [
+						'min' => 10,
+						'max' => 1000,
+					],
+					'%'  => [
+						'min' => 1,
+						'max' => 100,
+					],
+					'vw' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'default'    => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'impact_image_height',
+			[
+				'label'      => esc_html__( 'Height', 'dataphiles' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'vh' ],
+				'range'      => [
+					'px' => [
+						'min' => 10,
+						'max' => 500,
+					],
+					'vh' => [
+						'min' => 1,
+						'max' => 50,
+					],
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'impact_image_object_fit',
+			[
+				'label'     => esc_html__( 'Object Fit', 'dataphiles' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					''        => esc_html__( 'Default', 'dataphiles' ),
+					'contain' => esc_html__( 'Contain', 'dataphiles' ),
+					'cover'   => esc_html__( 'Cover', 'dataphiles' ),
+					'fill'    => esc_html__( 'Fill', 'dataphiles' ),
+				],
+				'selectors' => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'object-fit: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 		// Subline Style.
 		$this->start_controls_section(
 			'section_subline_style',
 			[
 				'label' => esc_html__( 'Subline Text', 'dataphiles' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'subline_alignment',
+			[
+				'label'     => esc_html__( 'Alignment', 'dataphiles' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'   => [
+						'title' => esc_html__( 'Left', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-center',
+					],
+					'right'  => [
+						'title' => esc_html__( 'Right', 'dataphiles' ),
+						'icon'  => 'eicon-text-align-right',
+					],
+				],
+				'default'   => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .dataphiles-dynamic-text__subline' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 
@@ -428,38 +715,12 @@ class Dynamic_Text_Widget extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'text_alignment',
-			[
-				'label'     => esc_html__( 'Alignment', 'dataphiles' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'   => [
-						'title' => esc_html__( 'Left', 'dataphiles' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'dataphiles' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-					'right'  => [
-						'title' => esc_html__( 'Right', 'dataphiles' ),
-						'icon'  => 'eicon-text-align-right',
-					],
-				],
-				'default'   => 'center',
-				'selectors' => [
-					'{{WRAPPER}} .dataphiles-dynamic-text' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'container_min_height',
 			[
-				'label'      => esc_html__( 'Minimum Height', 'dataphiles' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'vh' ],
-				'range'      => [
+				'label'       => esc_html__( 'Minimum Height', 'dataphiles' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', 'vh' ],
+				'range'       => [
 					'px' => [
 						'min' => 50,
 						'max' => 500,
@@ -469,7 +730,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 						'max' => 50,
 					],
 				],
-				'selectors'  => [
+				'selectors'   => [
 					'{{WRAPPER}} .dataphiles-dynamic-text' => 'min-height: {{SIZE}}{{UNIT}};',
 				],
 				'description' => esc_html__( 'Set a minimum height to prevent layout shifts during animation.', 'dataphiles' ),
@@ -509,10 +770,24 @@ class Dynamic_Text_Widget extends Widget_Base {
 		// Prepare entries data for JavaScript.
 		$entries_data = [];
 		foreach ( $entries as $entry ) {
-			$entries_data[] = [
-				'impact'  => esc_html( $entry['impact_text'] ),
-				'subline' => esc_html( $entry['subline_text'] ),
+			$entry_data = [
+				'contentType' => $entry['content_type'],
+				'subline'     => esc_html( $entry['subline_text'] ),
 			];
+
+			if ( 'image' === $entry['content_type'] && ! empty( $entry['impact_image']['url'] ) ) {
+				$entry_data['imageUrl'] = esc_url( $entry['impact_image']['url'] );
+				$entry_data['imageAlt'] = ! empty( $entry['impact_image']['alt'] ) ? esc_attr( $entry['impact_image']['alt'] ) : '';
+			} else {
+				$entry_data['impact'] = esc_html( $entry['impact_text'] );
+			}
+
+			// Add custom display duration if set.
+			if ( ! empty( $entry['custom_display_duration'] ) ) {
+				$entry_data['displayDuration'] = absint( $entry['custom_display_duration'] );
+			}
+
+			$entries_data[] = $entry_data;
 		}
 
 		// Animation settings.
@@ -521,13 +796,20 @@ class Dynamic_Text_Widget extends Widget_Base {
 			'sublineDelay'         => absint( $settings['subline_delay'] ),
 			'sublineEnterDuration' => absint( $settings['subline_enter_duration'] ),
 			'displayDuration'      => absint( $settings['display_duration'] ),
-			'exitDuration'         => absint( $settings['exit_duration'] ),
+			'impactExitDuration'   => absint( $settings['impact_exit_duration'] ),
+			'sublineExitDuration'  => absint( $settings['subline_exit_duration'] ),
+			'delayBetweenEntries'  => absint( $settings['delay_between_entries'] ),
 			'dropDistance'         => absint( $settings['drop_distance']['size'] ),
+			'enterDirection'       => $settings['enter_direction'],
+			'exitDirection'        => $settings['exit_direction'],
 			'pauseOnHover'         => 'yes' === $settings['pause_on_hover'],
 			'entries'              => $entries_data,
 		];
 
 		$widget_id = $this->get_id();
+
+		// Get first entry for initial render.
+		$first_entry = $entries[0];
 
 		?>
 		<div class="dataphiles-dynamic-text"
@@ -536,11 +818,15 @@ class Dynamic_Text_Widget extends Widget_Base {
 
 			<div class="dataphiles-dynamic-text__entry">
 				<<?php echo esc_html( $impact_tag ); ?> class="dataphiles-dynamic-text__impact">
-					<?php echo esc_html( $entries[0]['impact_text'] ); ?>
+					<?php if ( 'image' === $first_entry['content_type'] && ! empty( $first_entry['impact_image']['url'] ) ) : ?>
+						<img src="<?php echo esc_url( $first_entry['impact_image']['url'] ); ?>" alt="<?php echo esc_attr( $first_entry['impact_image']['alt'] ?? '' ); ?>" />
+					<?php else : ?>
+						<?php echo esc_html( $first_entry['impact_text'] ); ?>
+					<?php endif; ?>
 				</<?php echo esc_html( $impact_tag ); ?>>
 
 				<<?php echo esc_html( $subline_tag ); ?> class="dataphiles-dynamic-text__subline">
-					<?php echo esc_html( $entries[0]['subline_text'] ); ?>
+					<?php echo esc_html( $first_entry['subline_text'] ); ?>
 				</<?php echo esc_html( $subline_tag ); ?>>
 			</div>
 		</div>
@@ -554,28 +840,35 @@ class Dynamic_Text_Widget extends Widget_Base {
 		?>
 		<#
 		var entries = settings.text_entries;
-		if ( ! entries.length ) {
+		if ( ! entries || ! entries.length ) {
 			return;
 		}
 
-		var impactTag = settings.impact_html_tag;
-		var sublineTag = settings.subline_html_tag;
+		var impactTag = settings.impact_html_tag || 'h2';
+		var sublineTag = settings.subline_html_tag || 'p';
 		var firstEntry = entries[0];
+		var impactText = firstEntry.impact_text || 'Impact';
+		var sublineText = firstEntry.subline_text || 'Subline';
+		var isImage = firstEntry.content_type === 'image' && firstEntry.impact_image && firstEntry.impact_image.url;
 		#>
 		<div class="dataphiles-dynamic-text">
-			<div class="dataphiles-dynamic-text__entry">
-				<{{{ impactTag }}} class="dataphiles-dynamic-text__impact">
-					{{{ firstEntry.impact_text }}}
+			<div class="dataphiles-dynamic-text__entry dataphiles-dynamic-text__entry--editor">
+				<{{{ impactTag }}} class="dataphiles-dynamic-text__impact dataphiles-dynamic-text__impact--visible">
+					<# if ( isImage ) { #>
+						<img src="{{{ firstEntry.impact_image.url }}}" alt="{{{ firstEntry.impact_image.alt || '' }}}" />
+					<# } else { #>
+						{{{ impactText }}}
+					<# } #>
 				</{{{ impactTag }}}>
 
-				<{{{ sublineTag }}} class="dataphiles-dynamic-text__subline">
-					{{{ firstEntry.subline_text }}}
+				<{{{ sublineTag }}} class="dataphiles-dynamic-text__subline dataphiles-dynamic-text__subline--visible">
+					{{{ sublineText }}}
 				</{{{ sublineTag }}}>
 			</div>
 
 			<# if ( entries.length > 1 ) { #>
-			<div class="dataphiles-dynamic-text__preview-note" style="font-size: 12px; color: #999; margin-top: 10px;">
-				<?php echo esc_html__( 'Cycling through', 'dataphiles' ); ?> {{{ entries.length }}} <?php echo esc_html__( 'entries', 'dataphiles' ); ?>
+			<div class="dataphiles-dynamic-text__preview-note">
+				<?php echo esc_html__( 'Cycling through', 'dataphiles' ); ?> {{{ entries.length }}} <?php echo esc_html__( 'entries on frontend', 'dataphiles' ); ?>
 			</div>
 			<# } #>
 		</div>
