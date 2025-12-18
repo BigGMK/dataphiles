@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Dataphiles
+ * Plugin Name: Dataphiles Bespoke Settings
  * Description: Custom Elementor widgets and settings for Dataphiles websites.
  * Version: 1.0.0
- * Author: Dataphiles
- * Author URI: https://dataphiles.com
+ * Author: Gregor MacKenzie
+ * Author URI: https://highland.health
  * Text Domain: dataphiles
  * Requires at least: 5.0
  * Requires PHP: 7.4
