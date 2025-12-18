@@ -20,9 +20,7 @@
 
 .dataphiles-dynamic-text__impact-wrapper {
 	position: relative;
-	display: inline-flex;
-	align-items: flex-end;
-	justify-content: center;
+	display: flex;
 	width: 100%;
 }
 
@@ -35,13 +33,14 @@
 	transition-timing-function: ease-out;
 	/* Prevent height collapse during animation */
 	visibility: visible;
+	width: 100%;
 }
 
-/* Image inside impact element */
+/* Image inside impact element - use inline-block for text-align to work */
 .dataphiles-dynamic-text__impact img {
-	display: block;
-	margin: 0 auto;
+	display: inline-block;
 	height: auto;
+	max-width: 100%;
 }
 
 /* Enter from top (drop down) - starts above */
