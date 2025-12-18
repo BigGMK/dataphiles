@@ -82,8 +82,9 @@
               circles[i].style.opacity = dimOpacity;
             }
 
-            // Light up current dot
+            // Light up current dot and the next one (two circles at full opacity)
             circles[dotIndex].style.opacity = fullOpacity;
+            circles[(dotIndex + 1) % circles.length].style.opacity = fullOpacity;
 
             // Move to next dot
             dotIndex = (dotIndex + 1) % circles.length;

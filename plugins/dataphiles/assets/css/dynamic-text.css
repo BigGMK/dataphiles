@@ -62,6 +62,15 @@
 	height: auto;
 }
 
+/* Object element for SVG (enables embedded JS animations) */
+.dataphiles-dynamic-text__impact object {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+	max-width: 100%;
+	pointer-events: none; /* Allow clicks to pass through to parent if needed */
+}
+
 /* Enter from top (drop down) - starts above */
 .dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__impact,
 .dataphiles-dynamic-text[data-enter-direction="down"] .dataphiles-dynamic-text__subline {

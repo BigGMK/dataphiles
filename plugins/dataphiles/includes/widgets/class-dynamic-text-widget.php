@@ -554,6 +554,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact object' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -585,6 +586,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'max-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact object' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -608,6 +610,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact img' => 'height: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .dataphiles-dynamic-text__impact svg' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .dataphiles-dynamic-text__impact object' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -822,7 +825,15 @@ class Dynamic_Text_Widget extends Widget_Base {
 				<div class="dataphiles-dynamic-text__impact-wrapper">
 					<<?php echo esc_html( $impact_tag ); ?> class="dataphiles-dynamic-text__impact">
 						<?php if ( 'image' === $first_entry['content_type'] && ! empty( $first_entry['impact_image']['url'] ) ) : ?>
-							<img src="<?php echo esc_url( $first_entry['impact_image']['url'] ); ?>" alt="<?php echo esc_attr( $first_entry['impact_image']['alt'] ?? '' ); ?>" />
+							<?php
+							$image_url = $first_entry['impact_image']['url'];
+							$is_svg    = preg_match( '/\.svg$/i', $image_url );
+							if ( $is_svg ) :
+								?>
+								<object type="image/svg+xml" data="<?php echo esc_url( $image_url ); ?>" aria-label="<?php echo esc_attr( $first_entry['impact_image']['alt'] ?? '' ); ?>"></object>
+							<?php else : ?>
+								<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $first_entry['impact_image']['alt'] ?? '' ); ?>" />
+							<?php endif; ?>
 						<?php else : ?>
 							<?php echo esc_html( $first_entry['impact_text'] ); ?>
 						<?php endif; ?>
@@ -860,7 +871,12 @@ class Dynamic_Text_Widget extends Widget_Base {
 				<div class="dataphiles-dynamic-text__impact-wrapper">
 					<{{{ impactTag }}} class="dataphiles-dynamic-text__impact dataphiles-dynamic-text__impact--visible">
 						<# if ( isImage ) { #>
-							<img src="{{{ firstEntry.impact_image.url }}}" alt="{{{ firstEntry.impact_image.alt || '' }}}" />
+							<# var isSvg = firstEntry.impact_image.url && firstEntry.impact_image.url.match(/\.svg$/i); #>
+							<# if ( isSvg ) { #>
+								<object type="image/svg+xml" data="{{{ firstEntry.impact_image.url }}}" aria-label="{{{ firstEntry.impact_image.alt || '' }}}"></object>
+							<# } else { #>
+								<img src="{{{ firstEntry.impact_image.url }}}" alt="{{{ firstEntry.impact_image.alt || '' }}}" />
+							<# } #>
 						<# } else { #>
 							{{{ impactText }}}
 						<# } #>

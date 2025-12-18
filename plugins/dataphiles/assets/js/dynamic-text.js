@@ -97,7 +97,7 @@
 			this.settings.entries.forEach((entry) => {
 				// Set content
 				if (entry.contentType === 'image' && entry.imageUrl) {
-					this.impactEl.innerHTML = '<img src="' + entry.imageUrl + '" alt="' + (entry.imageAlt || '') + '" />';
+					this.impactEl.innerHTML = this.createImageHtml(entry.imageUrl, entry.imageAlt);
 				} else {
 					this.impactEl.textContent = entry.impact || '';
 				}
@@ -129,11 +129,23 @@
 			// Reset to first entry content
 			const firstEntry = this.settings.entries[0];
 			if (firstEntry.contentType === 'image' && firstEntry.imageUrl) {
-				this.impactEl.innerHTML = '<img src="' + firstEntry.imageUrl + '" alt="' + (firstEntry.imageAlt || '') + '" />';
+				this.impactEl.innerHTML = this.createImageHtml(firstEntry.imageUrl, firstEntry.imageAlt);
 			} else {
 				this.impactEl.textContent = firstEntry.impact || '';
 			}
 			this.sublineEl.textContent = firstEntry.subline;
+		}
+
+		/**
+		 * Create HTML for image/SVG content
+		 * Uses <object> tag for SVGs to enable embedded JavaScript animations
+		 */
+		createImageHtml(url, alt) {
+			const isSvg = url && url.match(/\.svg$/i);
+			if (isSvg) {
+				return '<object type="image/svg+xml" data="' + url + '" aria-label="' + (alt || '') + '"></object>';
+			}
+			return '<img src="' + url + '" alt="' + (alt || '') + '" />';
 		}
 
 		startCycle() {
@@ -152,7 +164,7 @@
 
 			// Update content based on type
 			if (isImage) {
-				this.impactEl.innerHTML = '<img src="' + entry.imageUrl + '" alt="' + (entry.imageAlt || '') + '" />';
+				this.impactEl.innerHTML = this.createImageHtml(entry.imageUrl, entry.imageAlt);
 				log('Set image content:', entry.imageUrl);
 			} else {
 				this.impactEl.textContent = entry.impact || '';
