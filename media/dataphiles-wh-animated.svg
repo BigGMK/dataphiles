@@ -104,10 +104,19 @@
         }
 
         // Start animation when SVG loads
-        if (document.readyState === 'complete') {
-          runAnimation();
+        // Use setTimeout to ensure DOM is fully ready when embedded via <object>
+        function init() {
+          if (rects.length > 0) {
+            runAnimation();
+          } else {
+            setTimeout(init, 50);
+          }
+        }
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          setTimeout(init, 0);
         } else {
-          window.addEventListener('load', runAnimation);
+          document.addEventListener('DOMContentLoaded', init);
         }
       })();
     ]]>
