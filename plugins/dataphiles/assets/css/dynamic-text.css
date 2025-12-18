@@ -7,11 +7,22 @@
 
 .dataphiles-dynamic-text {
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
+	/* Add padding to accommodate animation start position */
+	padding-top: var(--drop-distance, 50px);
+	margin-top: calc(var(--drop-distance, 50px) * -1);
 }
 
 .dataphiles-dynamic-text__entry {
 	position: relative;
+	width: 100%;
+}
+
+.dataphiles-dynamic-text__impact-wrapper {
+	position: relative;
+	display: inline-flex;
+	align-items: flex-end;
+	justify-content: center;
 	width: 100%;
 }
 
@@ -45,23 +56,23 @@
 	transform: translateY(var(--drop-distance, 50px));
 }
 
-/* Visible state - centered */
-.dataphiles-dynamic-text__impact.is-visible,
-.dataphiles-dynamic-text__subline.is-visible {
+/* Visible state - centered (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-visible,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-/* Exit down - drops below */
-.dataphiles-dynamic-text__impact.is-exiting-down,
-.dataphiles-dynamic-text__subline.is-exiting-down {
+/* Exit down - drops below (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-exiting-down,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-exiting-down {
 	opacity: 0;
 	transform: translateY(var(--drop-distance, 50px));
 }
 
-/* Exit up - rises above */
-.dataphiles-dynamic-text__impact.is-exiting-up,
-.dataphiles-dynamic-text__subline.is-exiting-up {
+/* Exit up - rises above (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-exiting-up,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-exiting-up {
 	opacity: 0;
 	transform: translateY(calc(var(--drop-distance, 50px) * -1));
 }
@@ -72,11 +83,11 @@
 	transition: none;
 }
 
-/* Editor preview - always visible */
-.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__impact--visible,
-.dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__subline--visible {
-	opacity: 1;
-	transform: translateY(0);
+/* Editor preview - always visible (high specificity to override all animation states) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__impact--visible,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__entry--editor .dataphiles-dynamic-text__subline--visible {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
 }
 
 /* Editor preview note */
@@ -88,10 +99,96 @@
 	text-align: center;
 }
 
+/* ==================== */
+/* Spark Effects        */
+/* ==================== */
+
+.dataphiles-dynamic-text__sparks {
+	position: absolute;
+	bottom: 0;
+	width: 30px;
+	height: 100%;
+	pointer-events: none;
+	overflow: visible;
+}
+
+.dataphiles-dynamic-text__sparks--left {
+	right: 100%;
+	margin-right: 5px;
+}
+
+.dataphiles-dynamic-text__sparks--right {
+	left: 100%;
+	margin-left: 5px;
+}
+
+/* Individual spark particle */
+.dataphiles-dynamic-text__spark {
+	position: absolute;
+	bottom: 0;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	will-change: transform, opacity;
+}
+
+/* Spark with glow effect */
+.dataphiles-dynamic-text__spark::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200%;
+	height: 200%;
+	border-radius: 50%;
+	background: inherit;
+	filter: blur(4px);
+	opacity: 0.6;
+}
+
+/* Spark trail effect */
+.dataphiles-dynamic-text__spark--trail::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 0;
+	background: linear-gradient(to top, currentColor, transparent);
+	opacity: 0.5;
+	transition: height 0.3s ease-out;
+}
+
+.dataphiles-dynamic-text__spark--trail.is-animating::after {
+	height: 20px;
+}
+
+/* Spark animation keyframes */
+@keyframes sparkRise {
+	0% {
+		opacity: 1;
+		transform: translateY(0) translateX(0) scale(1);
+	}
+	20% {
+		opacity: 1;
+		transform: translateY(-20px) translateX(var(--spark-drift, 5px)) scale(1.1);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-80px) translateX(var(--spark-drift-end, 10px)) scale(0.3);
+	}
+}
+
 /* Accessibility - reduce motion */
 @media (prefers-reduced-motion: reduce) {
 	.dataphiles-dynamic-text__impact,
 	.dataphiles-dynamic-text__subline {
 		transition-duration: 0.01ms !important;
+	}
+
+	.dataphiles-dynamic-text__spark {
+		display: none;
 	}
 }

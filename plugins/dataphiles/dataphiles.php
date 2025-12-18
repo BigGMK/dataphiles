@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dataphiles Bespoke Settings
  * Description: Custom Elementor widgets and settings for Dataphiles websites.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Gregor MacKenzie
  * Author URI: https://highland.health
  * Text Domain: dataphiles
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'DATAPHILES_VERSION', '1.0.3' );
+define( 'DATAPHILES_VERSION', '1.0.4' );
 define( 'DATAPHILES_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DATAPHILES_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
