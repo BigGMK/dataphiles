@@ -7,7 +7,10 @@
 
 .dataphiles-dynamic-text {
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
+	/* Add padding to accommodate animation start position */
+	padding-top: var(--drop-distance, 50px);
+	margin-top: calc(var(--drop-distance, 50px) * -1);
 }
 
 .dataphiles-dynamic-text__entry {
@@ -53,23 +56,23 @@
 	transform: translateY(var(--drop-distance, 50px));
 }
 
-/* Visible state - centered */
-.dataphiles-dynamic-text__impact.is-visible,
-.dataphiles-dynamic-text__subline.is-visible {
+/* Visible state - centered (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-visible,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-/* Exit down - drops below */
-.dataphiles-dynamic-text__impact.is-exiting-down,
-.dataphiles-dynamic-text__subline.is-exiting-down {
+/* Exit down - drops below (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-exiting-down,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-exiting-down {
 	opacity: 0;
 	transform: translateY(var(--drop-distance, 50px));
 }
 
-/* Exit up - rises above */
-.dataphiles-dynamic-text__impact.is-exiting-up,
-.dataphiles-dynamic-text__subline.is-exiting-up {
+/* Exit up - rises above (higher specificity to override enter direction) */
+.dataphiles-dynamic-text .dataphiles-dynamic-text__impact.is-exiting-up,
+.dataphiles-dynamic-text .dataphiles-dynamic-text__subline.is-exiting-up {
 	opacity: 0;
 	transform: translateY(calc(var(--drop-distance, 50px) * -1));
 }
