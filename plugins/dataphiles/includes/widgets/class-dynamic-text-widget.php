@@ -198,7 +198,7 @@ class Dynamic_Text_Widget extends Widget_Base {
 						'subline_text' => esc_html__( 'Subline', 'dataphiles' ),
 					],
 				],
-				'title_field' => '<# if ( content_type === "image" ) { #><?php echo esc_html__( '[Image]', 'dataphiles' ); ?><# } else { #>{{{ impact_text }}}<# } #>',
+				'title_field' => '<# if ( content_type === "image" ) { #>[Image]<# } else { #>{{{ impact_text }}}<# } #>',
 				'max_items'   => 10,
 			]
 		);
