@@ -332,3 +332,13 @@ html {
   visibility: hidden;
 }
 
+/* Fade-in transition for stat numbers */
+.dataphiles-stats .elementor-heading-title[data-stat-initialized] {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.dataphiles-stats .elementor-heading-title[data-stat-animated] {
+  opacity: 1;
+}
+

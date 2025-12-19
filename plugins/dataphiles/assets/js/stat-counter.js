@@ -97,6 +97,8 @@
 				if (entry.isIntersecting) {
 					// Stagger animation based on index
 					setTimeout(() => {
+						// Trigger fade-in
+						heading.dataset.statAnimated = 'true';
 						animateValue(heading, parsed, ANIMATION_DURATION);
 					}, index * STAGGER_DELAY);
 					// Stop observing (first time only)
