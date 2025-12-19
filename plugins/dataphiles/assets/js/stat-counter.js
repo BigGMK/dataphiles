@@ -65,28 +65,40 @@
 		requestAnimationFrame(update);
 	}
 
+	const ANIMATION_DURATION = 2000;
+	const STAGGER_DELAY = 200;
+
 	/**
 	 * Initialize stat counter for an element
 	 */
-	function initStatCounter(heading) {
+	function initStatCounter(heading, index) {
 		// Get the text content (handle nested spans)
 		const textContent = heading.textContent.trim();
 		const parsed = parseStatValue(textContent);
 
-		if (!parsed) return;
+		if (!parsed) {
+			// Mark as initialized even if no valid number
+			heading.dataset.statInitialized = 'true';
+			return;
+		}
 
 		// Store original for reference
 		heading.dataset.statTarget = textContent;
 
-		// Set initial value to 0
+		// Set initial value to 0 immediately
 		heading.textContent = parsed.prefix + '0' + parsed.suffix;
 
-		// Create observer
+		// Mark as initialized (removes visibility:hidden)
+		heading.dataset.statInitialized = 'true';
+
+		// Create observer with staggered animation
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
-					// Animate to target value
-					animateValue(heading, parsed, 1500);
+					// Stagger animation based on index
+					setTimeout(() => {
+						animateValue(heading, parsed, ANIMATION_DURATION);
+					}, index * STAGGER_DELAY);
 					// Stop observing (first time only)
 					observer.disconnect();
 				}
@@ -103,11 +115,10 @@
 	 */
 	function init() {
 		const headings = document.querySelectorAll('.dataphiles-stats .elementor-heading-title');
-		headings.forEach(heading => {
+		headings.forEach((heading, index) => {
 			// Skip if already initialized
 			if (heading.dataset.statInitialized) return;
-			heading.dataset.statInitialized = 'true';
-			initStatCounter(heading);
+			initStatCounter(heading, index);
 		});
 	}
 

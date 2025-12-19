@@ -327,3 +327,8 @@ html {
   color: var(--white);
 }
 
+/* Hide stat numbers until JS initializes to prevent flash */
+.dataphiles-stats .elementor-heading-title:not([data-stat-initialized]) {
+  visibility: hidden;
+}
+
