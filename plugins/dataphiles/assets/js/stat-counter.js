@@ -35,12 +35,13 @@
 	}
 
 	/**
-	 * Animate a number from 0 to target value
+	 * Animate a number from 0 to target value with fade between digits
 	 */
 	function animateValue(element, parsed, duration) {
 		const startTime = performance.now();
 		const targetValue = parsed.value;
 		const isInteger = Number.isInteger(targetValue);
+		let lastValue = -1;
 
 		function update(currentTime) {
 			const elapsed = currentTime - startTime;
@@ -55,7 +56,17 @@
 				currentValue = Math.round(currentValue * 10) / 10;
 			}
 
-			element.textContent = parsed.prefix + currentValue + parsed.suffix;
+			// Only update and fade if value changed
+			if (currentValue !== lastValue) {
+				// Subtle fade pulse on number change
+				element.style.opacity = '0.7';
+				element.textContent = parsed.prefix + currentValue + parsed.suffix;
+				// Fade back to full
+				requestAnimationFrame(() => {
+					element.style.opacity = '1';
+				});
+				lastValue = currentValue;
+			}
 
 			if (progress < 1) {
 				requestAnimationFrame(update);
@@ -65,28 +76,42 @@
 		requestAnimationFrame(update);
 	}
 
+	const ANIMATION_DURATION = 2000;
+	const STAGGER_DELAY = 200;
+
 	/**
 	 * Initialize stat counter for an element
 	 */
-	function initStatCounter(heading) {
+	function initStatCounter(heading, index) {
 		// Get the text content (handle nested spans)
 		const textContent = heading.textContent.trim();
 		const parsed = parseStatValue(textContent);
 
-		if (!parsed) return;
+		if (!parsed) {
+			// Mark as initialized even if no valid number
+			heading.dataset.statInitialized = 'true';
+			return;
+		}
 
 		// Store original for reference
 		heading.dataset.statTarget = textContent;
 
-		// Set initial value to 0
+		// Set initial value to 0 immediately
 		heading.textContent = parsed.prefix + '0' + parsed.suffix;
 
-		// Create observer
+		// Mark as initialized (removes visibility:hidden)
+		heading.dataset.statInitialized = 'true';
+
+		// Create observer with staggered animation
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
-					// Animate to target value
-					animateValue(heading, parsed, 1500);
+					// Stagger animation based on index
+					setTimeout(() => {
+						// Trigger fade-in
+						heading.dataset.statAnimated = 'true';
+						animateValue(heading, parsed, ANIMATION_DURATION);
+					}, index * STAGGER_DELAY);
 					// Stop observing (first time only)
 					observer.disconnect();
 				}
@@ -103,11 +128,10 @@
 	 */
 	function init() {
 		const headings = document.querySelectorAll('.dataphiles-stats .elementor-heading-title');
-		headings.forEach(heading => {
+		headings.forEach((heading, index) => {
 			// Skip if already initialized
 			if (heading.dataset.statInitialized) return;
-			heading.dataset.statInitialized = 'true';
-			initStatCounter(heading);
+			initStatCounter(heading, index);
 		});
 	}
 
