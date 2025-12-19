@@ -35,12 +35,13 @@
 	}
 
 	/**
-	 * Animate a number from 0 to target value
+	 * Animate a number from 0 to target value with fade between digits
 	 */
 	function animateValue(element, parsed, duration) {
 		const startTime = performance.now();
 		const targetValue = parsed.value;
 		const isInteger = Number.isInteger(targetValue);
+		let lastValue = -1;
 
 		function update(currentTime) {
 			const elapsed = currentTime - startTime;
@@ -55,7 +56,17 @@
 				currentValue = Math.round(currentValue * 10) / 10;
 			}
 
-			element.textContent = parsed.prefix + currentValue + parsed.suffix;
+			// Only update and fade if value changed
+			if (currentValue !== lastValue) {
+				// Subtle fade pulse on number change
+				element.style.opacity = '0.7';
+				element.textContent = parsed.prefix + currentValue + parsed.suffix;
+				// Fade back to full
+				requestAnimationFrame(() => {
+					element.style.opacity = '1';
+				});
+				lastValue = currentValue;
+			}
 
 			if (progress < 1) {
 				requestAnimationFrame(update);

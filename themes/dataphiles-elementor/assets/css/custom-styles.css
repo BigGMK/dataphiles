@@ -335,7 +335,7 @@ html {
 /* Fade-in transition for stat numbers */
 .dataphiles-stats .elementor-heading-title[data-stat-initialized] {
   opacity: 0;
-  transition: opacity 0.4s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
 .dataphiles-stats .elementor-heading-title[data-stat-animated] {
