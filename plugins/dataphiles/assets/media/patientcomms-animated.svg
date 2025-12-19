@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="283" height="51" viewBox="0 0 283 51">
+  <!-- Animation: Typing indicator style - rotating colors -->
   <defs>
     <clipPath id="clip-Logo">
       <rect width="283" height="51"/>
@@ -30,22 +32,6 @@
       </g>
     </g>
   </g>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script type="text/javascript">
     <![CDATA[
       (function() {
