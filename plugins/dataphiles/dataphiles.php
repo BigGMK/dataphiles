@@ -215,6 +215,15 @@ final class Dataphiles_Plugin {
                 'debug' => Dataphiles_Admin::get_setting( 'dynamic_text_debug', false ),
             ]
         );
+
+        // Stat counter animation
+        wp_enqueue_script(
+            'dataphiles-stat-counter',
+            DATAPHILES_PLUGIN_URL . 'assets/js/stat-counter.js',
+            [],
+            DATAPHILES_VERSION,
+            true
+        );
     }
 
     /**
